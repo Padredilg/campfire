@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS campfire;
+
+CREATE DATABASE campfire;
