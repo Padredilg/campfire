@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campfire</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Train+One">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1 class="home"> <a id="home-button" href="/"> <i class="fab fa-free-code-camp"></i> Campfire</a> </h1>
+      <nav>
+        <div class="nav-section">
+          <a class="link-button" href="/"> <i class="fas fa-home"></i> Home</a>
+          {{#if loggedIn}}
+          <a class="link-button" href="/dashboard"> <i class="fas fa-user-alt"></i> Dashboard</a>
+          {{/if}}
+        </div>
+        <div class="nav-section">
+          {{#if loggedIn}}
+          <a id="logout"  href="/" class="link-button">logout <i class="fas fa-sign-out-alt"></i> </a>
+          {{else}}
+          <a class="link-button" href="/login"> <i class="fas fa-sign-in-alt"></i> login</a>
+          {{/if}}
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      {{{ body }}}
+    </main>
+    
+    <footer>
+      Thanks for visiting!
+    </footer>
+  </div>
+
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+
+</body>
+
+</html>
