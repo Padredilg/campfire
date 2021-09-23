@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2021 Padredilg
+Copyright (c) 2021 Aidan Amato, Mike Astalos, Brenda Jackels, Luiz Padredi
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
