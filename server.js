@@ -8,6 +8,10 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 
 const app = express();
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
 const PORT = process.env.PORT || 3001;
 const sess = {
     secret: 'Super secret secret',
@@ -32,6 +36,11 @@ const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
+  });
+  
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Now listening on port ${PORT}!`));
