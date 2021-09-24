@@ -56,6 +56,10 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    title:{
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     picture: {
       type: DataTypes.BLOB,
       allowNull: true,
