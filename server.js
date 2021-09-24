@@ -33,7 +33,8 @@ io.on('connection', (socket) => {
         console.log('user disconnected');
     });
     socket.on('chat message', msg => {
-      io.emit('chat message', msg);
+        io.emit('chat message', msg);
+        console.log('message: '+ msg)
     });
   });
 

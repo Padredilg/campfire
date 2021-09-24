@@ -1,8 +1,12 @@
 const router = require('express').Router();
-const {User} = require('../../models');
 
 router.get('/', (req, res) => {
-  
+    let x = {'name': 'test'}
+    res.json(x)
+});
+
+router.get('/:name',  (req, res) => {
+    
 });
 
 module.exports = router;
