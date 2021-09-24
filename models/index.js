@@ -57,7 +57,7 @@ Post.belongsToMany(User, {
   foreignKey: 'post_id'
 });
 
-
+// USER-FRIENDSHIP ASSOCIATIONS
 User.hasMany(Friendship, {
   foreignKey: 'requesting_user_id'
 });
@@ -73,7 +73,6 @@ Friendship.belongsTo(User, {
   as: 'requested',
   foreignKey: 'requested_user_id'
 });
-
 
 module.exports = {User, Post, Love, Comment, Friendship};
 
