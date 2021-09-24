@@ -4,7 +4,7 @@ const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 // http://localhost:3001/api/posts
-/* UPDATE LOGOUT AND DELETE WILL NEED withAuth for security reasons we must add them after the test phase is done*/
+/* POST new Post, PUT like, PUT update post, AND DELETE a post will all need withAuth for security reasons. We must add them after the test phase is done*/
 
 // GET all posts
 router.get('/', (req, res) => {
@@ -85,7 +85,7 @@ router.get('/:id', (req, res) => {
 });
 
 //POST create new post
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     console.log("POST", req);
     // expects {title: 'Taskmaster goes public!', content: 'https://taskmaster.com/press', user_id: 1}
     Post.create({
@@ -102,7 +102,7 @@ router.post('/', withAuth, (req, res) => {
 
 // PUT - like (or dislike) a post
 //needs to be before PUT by /:id, or express will think uplike is an id param
-router.put('/uplike', withAuth, (req, res) => {
+router.put('/uplike', (req, res) => {
     // make sure the session exists first
     if (req.session) {
         // pass session id along with all destructured properties on req.body
@@ -116,7 +116,7 @@ router.put('/uplike', withAuth, (req, res) => {
 });
 
 //PUT update a post (title and content)
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Post.update(
         {
             title: req.body.title,
@@ -142,7 +142,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 //DELETE a post
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id

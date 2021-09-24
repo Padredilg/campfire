@@ -3,7 +3,7 @@ const { User, Post, Like, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // http://localhost:3001/api/users
-/* UPDATE LOGOUT AND DELETE WILL NEED withAuth for security reasons we must add them after the test phase is done*/
+/* UPDATE USER, LOGOUT, AND DELETE USER will all need withAuth for security reasons. We must add them after the test phase is done*/
 
 // GET all users
 router.get('/', (req, res) => {
