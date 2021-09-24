@@ -10,4 +10,17 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/', ({body}, res) => {
+  User.create({
+    username: body.username,
+    email: body.email,
+    password: body.password
+  })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 module.exports = router;

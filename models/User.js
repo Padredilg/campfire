@@ -17,17 +17,19 @@ User.init(
     },
     username: {
       type: DataTypes.STRING(30),
+      unique: true,
       allowNull: false
     },
     email: {
       type: DataTypes.STRING(100),
       unique: true,
+      allowNull: false,
       validate: {
         isEmail: true
       }
     },
     password: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: 4
