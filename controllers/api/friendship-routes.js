@@ -64,7 +64,7 @@ router.delete('/:id', ({params}, res) => {
   Friendship.destroy({
     where: {id: params.id}
   })
-    .then(debFriendshipData => res.json(dbFriendshipData))
+    .then(dbFriendshipData => res.json(dbFriendshipData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
