@@ -2,7 +2,7 @@
 const User = require('./User');
 const Post = require('./Post');
 const Comment = require("./Comment");
-const Like = require("./Like");
+const Love = require("./Love");
 const Friendship = require('./Friendship');
 
 // USER-POST ASSOCIATIONS
@@ -29,21 +29,21 @@ Comment.belongsTo(Post, {
   foreignKey: 'post_id'
 });
 
-//USER-LIKE-POST ASSOCIATIONS
-User.hasMany(Like, {
+//USER-Love-POST ASSOCIATIONS
+User.hasMany(Love, {
   foreignKey: 'user_id'
 });
-Post.hasMany(Like, {
+Post.hasMany(Love, {
   foreignKey: 'post_id'
 });
 User.belongsToMany(Post, {
-  through: Like,
-  as: 'liked_posts',
+  through: Love,
+  as: 'loved_posts',
   foreignKey: 'user_id'
 });
 Post.belongsToMany(User, {
-  through: Like,
-  as: 'liked_posts',
+  through: Love,
+  as: 'loved_posts',
   foreignKey: 'post_id'
 });
 
@@ -63,7 +63,7 @@ Friendship.belongsTo(User, {
 });
 
 
-module.exports = {User, Post, Like, Comment, Friendship};
+module.exports = {User, Post, Love, Comment, Friendship};
 
 //Channels
 //channel

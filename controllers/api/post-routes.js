@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Post, User, Like, Comment } = require('../../models');
+const { Post, User, Love, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 // http://localhost:3001/api/posts
-/* POST new Post, PUT like, PUT update post, AND DELETE a post will all need withAuth for security reasons. We must add them after the test phase is done*/
+/* POST new Post, PUT love, PUT update post, AND DELETE a post will all need withAuth for security reasons. We must add them after the test phase is done*/
 
 // GET all posts
 router.get('/', (req, res) => {
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
             'title',
             'created_at',
             'user_id',
-            [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']//this property displays the like_count
+            [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']//this property displays the love_count
         ],
         order: [['created_at', 'DESC']],
         include: [
@@ -54,7 +54,7 @@ router.get('/:id', (req, res) => {
             'content',
             'title',
             'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']
           ],
         include: [
             {
@@ -100,14 +100,14 @@ router.post('/', (req, res) => {
     });
 });
 
-// PUT - like (or dislike) a post
-//needs to be before PUT by /:id, or express will think uplike is an id param
-router.put('/uplike', (req, res) => {
+// PUT - love (or dislove) a post
+//needs to be before PUT by /:id, or express will think uplove is an id param
+router.put('/uplove', (req, res) => {
     // make sure the session exists first
     if (req.session) {
         // pass session id along with all destructured properties on req.body
-        Post.uplike({ ...req.body, user_id: req.session.user_id }, { Like, Comment, User })
-            .then(updatedLikeData => res.json(updatedLikeData))
+        Post.uplove({ ...req.body, user_id: req.session.user_id }, { Love, Comment, User })
+            .then(updatedLoveData => res.json(updatedLoveData))
             .catch(err => {
                 console.log(err);
                 res.status(500).json(err);
