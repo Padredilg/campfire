@@ -1,5 +1,5 @@
 <div class="card mx-3">
-    <div class="card-header bg-info mb-0">
+    <div class="card-header mb-0 title-bar">
         {{logOrSign}}
     </div>
     {{#if loggingIn}}
@@ -19,6 +19,14 @@
             <label for="password" class="form-label mt-3">Password</label>
             <input type="password" class="form-control" id="password" placeholder="Password">
         </div>
+        {{#if loggingIn}}
+        {{!-- do nothing --}}
+        {{else}}
+            <div>
+                <label for="confirm_password" class="form-label mt-3">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmpassword" placeholder="Password">
+            </div>
+        {{/if}}
         <button type="submit" class="btn btn-primary btn-block mt-2">{{logOrSign}}</button>
 
         {{#if loggingIn}}

@@ -79,13 +79,19 @@ router.post('/', (req, res) => {
     })
     .catch(err => {
       //This will send different alerts for the user when signup fails
-        if(err.errors[0].validatorKey === 'len'){
+      console.log('================= error in signing up. error object:');
+      console.log(err);
+        if (err.errors[0].validatorKey === 'len'){
             res.status(500).send({ message: "Password needs to be at least 4 characters long."})
         }
-        else if(err.errors[0].validatorKey === 'not_unique'){
-            res.status(500).send({ message: "An account with this email already exists"})
+        else if (err.errors[0].validatorKey === 'not_unique'){
+            if (err.errors[0].path === "user.username") {
+                res.status(500).send({ message: `An account with user name ${err.errors[0].value} already exists`});
+            } else {
+                res.status(500).send({ message: `An account with email ${err.errors[0].value} already exists`});
+            }
         }
-        else if(err.errors[0].validatorKey === 'isEmail'){
+        else if (err.errors[0].validatorKey === 'isEmail'){
             res.status(500).send({ message: "Please check the formatting of your email"})
         }
         else{
@@ -126,13 +132,13 @@ router.post('/login', (req, res) => {
             }
         }).then(dbUserData => {
             if (!dbUserData) {
-                res.status(400).json({ message: 'No user with that email address!' });
+                res.status(400).json({ message: 'Either the user email or the password is incorrect!' });
                 return;
             }
             //verify password
             const validPassword = dbUserData.checkPassword(req.body.password);
             if (!validPassword) {
-                res.status(400).json({ message: 'Incorrect password!' });
+                res.status(400).json({ message: 'Either the user name or the password is incorrect!' });
                 return;
             }
             //if email and password match, save cookie

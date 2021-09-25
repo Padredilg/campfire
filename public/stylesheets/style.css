@@ -65,6 +65,12 @@ nav {
     transition: all .25s ease-in-out;
 }
 
+.fake-button{
+    margin: 10px 5px;
+    padding: 4px 15px;
+    color: white;
+}
+
 .link-button:hover{
     background: rgba(255,255,255,.3);
     border-radius: 10px 0 10px 0;
@@ -104,3 +110,7 @@ footer {
     padding: 10px 0px 0 10px;
 }
 
+.title-bar {
+    background: var(--brownish);
+    color: white;
+}
