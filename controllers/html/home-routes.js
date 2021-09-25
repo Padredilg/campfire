@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment } = require('../../models');
+const { Post, User, Comment, Channel } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //When Login works withAuth on single-post
@@ -136,11 +136,36 @@ router.get('/post/:id', (req, res) => {
 router.get('/test', (req, res) => {
     if (req.session.loggedIn) {
         console.log('loggin')
-        res.redirect('/');
-        return;
+    User.findOne({
+        attributes: { exclude: ['password'] },
+        where: {
+            id: req.session.user_id
+        },
+        include: [
+            {model: Channel}
+        ]
+    })
+    .then(data => {
+        if (!data) {
+            res.status(404).json({ message: 'No user found with this id' });
+            return;
+        }
+        // res.json(data)
+        const channels = data.channels.map(channel => channel.get({ plain: true}));
+        // res.json(channels)
+        res.render('test', {
+            channels,
+            loggedIn: req.session.loggedIn,
+            username: req.session.username
+        });
+        console.log(data.channels[0].name)
+
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
     }
-    
-    res.render('test');
 });
 
 

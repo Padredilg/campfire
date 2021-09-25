@@ -2,15 +2,15 @@ const { Channel } = require('../models');
 
 const channeldata = [
   {
-      name: 'test server',
+      name: 'test server 1',
       user_id: 1,
   },
   {
-    name: 'test server',
+    name: 'test server 2',
     user_id: 2,
   },
   {
-    name: 'test server',
+    name: 'test server 3',
     user_id: 3,
   },
   {
