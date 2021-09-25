@@ -1,13 +1,25 @@
 const router = require('express').Router();
-const { Channel } = require('../../models');
+const { UserChannel } = require('../../models');
 
 router.get('/', (req, res) => {
-    Channel.findAll({
+    UserChannel.findAll({
         attributes: [
             'id',
-            'name'
+            'user_id',
+            'channel_id'
         ],
-        order: [['name', 'ASC']]
+        order: [['user_id', 'ASC']]
+    })
+    .then(data => res.json(data))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+router.get('/user',  (req, res) => {
+    UserChannel.findAll({
+        where: {user_id: req.body.user_id}
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -16,15 +28,12 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:name',  (req, res) => {
-    
-});
-
 router.post('/',  (req, res) => {
-    Channel.create({
-        name: req.body.name,
+    UserChannel.create({
+        user_id: req.body.user_id,
+        channel_id: req.body.channel_id
     })
-    .then(dbPostData => res.json(dbPostData))
+    .then(data => res.json(data))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
