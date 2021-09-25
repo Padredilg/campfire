@@ -14,14 +14,14 @@ UserChannel.init(
     user_id:{
       type: DataTypes.INTEGER,
       references: {
-        model: 'User',
+        model: 'user',
         key: 'id'
       }
     },
     channel_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'Channel',
+        model: 'channel',
         key: 'id'
       }
     }
