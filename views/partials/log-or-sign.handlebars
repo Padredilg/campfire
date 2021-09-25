@@ -1,7 +1,7 @@
 <div class="card mx-3">
-    <div class="card-header bg-info mb-0">
+    {{!-- <div class="card-header mb-0 title-bar">
         {{logOrSign}}
-    </div>
+    </div> --}}
     {{#if loggingIn}}
     <form class="login-form card-body" id="login-form">
     {{else}}
@@ -19,12 +19,20 @@
             <label for="password" class="form-label mt-3">Password</label>
             <input type="password" class="form-control" id="password" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary btn-block mt-2">{{logOrSign}}</button>
+        {{#if loggingIn}}
+        {{!-- do nothing --}}
+        {{else}}
+            <div>
+                <label for="confirm_password" class="form-label mt-3">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmpassword" placeholder="Password">
+            </div>
+        {{/if}}
+        <button type="submit" class="mt-2 action-button">{{logOrSign}}</button>
 
         {{#if loggingIn}}
-        <a class="nav-link px-0" href="/signup">Sign Up Instead</a>
+        <a class="action-link px-0" href="/signup">Not yet registered? Sign up here!</a>
         {{else}}
-        <a class="nav-link px-0" href="/login">Login Instead</a>
+        <a class="action-link px-0" href="/login">Login with an existing account</a>
         {{/if}}
     </form>
 </div>
