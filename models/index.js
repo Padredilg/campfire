@@ -75,7 +75,5 @@ Friendship.belongsTo(User, {
 });
 
 
-module.exports = {User, Post, Love, Comment, Friendship};
+module.exports = {User, Post, Love, Comment, Friendship, Channel};
 
-//Channels
-//channel
