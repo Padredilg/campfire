@@ -16,16 +16,27 @@
   <div class="wrapper">
     <header>
       <h1 class="home"> <a id="home-button" href="/"> <i class="fab fa-free-code-camp"></i> Campfire</a> </h1>
+      {{#if loggedIn}}
+      <p class="greeting">Hi {{username}}, welcome back!</p>
+      {{/if}}
+      
       <nav>
         <div class="nav-section">
           <a class="link-button" href="/"> <i class="fas fa-home"></i> Home</a>
           {{#if loggedIn}}
-          <a class="link-button" href="/dashboard"> <i class="fas fa-user-alt"></i> Dashboard</a>
+          <a class="link-button" href="/dashboard"> <i class="fas fa-user-alt"></i>Dashboard</a>
           {{/if}}
         </div>
+        {{#if username}}
+        <div class="nav-section">
+            <h6 class="fake-button">{{username}}</h6>
+        </div>
+        {{/if}}
+
         <div class="nav-section">
           {{#if loggedIn}}
-          <a id="logout"  href="/" class="link-button">logout <i class="fas fa-sign-out-alt"></i> </a>
+          {{!-- <a id="logout"  href="/logout" class="link-button">logout <i class="fas fa-sign-out-alt"></i> </a> --}}
+          <button type="button" id="logout" class="link-button"><i class="fas fa-sign-out-alt"></i>logout</button>
           {{else}}
           <a class="link-button" href="/login"> <i class="fas fa-sign-in-alt"></i> login</a>
           {{/if}}
