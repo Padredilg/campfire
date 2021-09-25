@@ -33,11 +33,11 @@ Comment.belongsTo(Post, {
 
 //CHANNEL-USER ASSOCIATIONS
 User.belongsToMany(Channel, {
-  through:'UserChannel'
+  through: UserChannel
 })
 
 Channel.belongsToMany(User, {
-  through:'UserChannel'
+  through: UserChannel
 })
 
 //USER-Love-POST ASSOCIATIONS
@@ -76,5 +76,5 @@ Friendship.belongsTo(User, {
 });
 
 
-module.exports = {User, Post, Love, Comment, Friendship, Channel};
+module.exports = {User, Post, Love, Comment, Friendship, Channel, UserChannel};
 

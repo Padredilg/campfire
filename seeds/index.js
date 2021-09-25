@@ -4,6 +4,7 @@ const seedComments = require('./comment-seeds');
 const seedLoves = require('./love-seeds');
 const seedFriendships = require('./friendship-seeds');
 const seedChannels = require('./channel-seeds');
+const seedUserChannels = require('./userchannel-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -27,6 +28,9 @@ const seedAll = async () => {
   console.log('--------------');
 
   await seedChannels();
+  console.log('--------------');
+
+  await seedUserChannels();
   console.log('--------------');
 
   process.exit(0);

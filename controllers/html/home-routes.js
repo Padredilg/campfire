@@ -135,9 +135,11 @@ router.get('/post/:id', (req, res) => {
 
 router.get('/test', (req, res) => {
     if (req.session.loggedIn) {
+        console.log('loggin')
         res.redirect('/');
         return;
     }
+    
     res.render('test');
 });
 
