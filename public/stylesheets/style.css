@@ -1,21 +1,21 @@
-:root{
+:root {
     --brownish: #4A403A;
-    --redish: #A45D5D;
+    --reddish: #A45D5D;
     --yellowish:#FFC069;
     --greyish: #EFEFEF ;
 }
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-li{
+li {
     list-style: none;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -23,9 +23,8 @@ a:hover {
     text-decoration: none;
 }
 
-body{
+body {
     font-family: Montserrat, Helvetica, Arial, sans-serif;
-
 }
 
 button {
@@ -35,7 +34,7 @@ button {
     background: none;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -65,14 +64,14 @@ nav {
     transition: all .25s ease-in-out;
 }
 
-.link-button:hover{
+.link-button:hover {
     background: rgba(255,255,255,.3);
     border-radius: 10px 0 10px 0;
     color: white;
     transform: scale(1.1);
 }
 
-#home-button{
+#home-button {
     padding: 0 40px;
     border-radius: 0 75px 0px 45px;
     font-family: 'Train One';
@@ -81,16 +80,16 @@ nav {
     transition: all .25s ease-in-out;
 }
 
-#home-button:hover{
+#home-button:hover {
     background-color:var(--brownish);
     color: white;
 }
 
-.fa-free-code-camp{
-    color: var(--redish);
+.fa-free-code-camp {
+    color: var(--reddish);
 }
 
-.fa-home, .fa-user-alt, .fa-sign-out-alt, .fa-sign-in-alt{
+.fa-home, .fa-user-alt, .fa-sign-out-alt, .fa-sign-in-alt {
     color: white;
 }
 
@@ -104,3 +103,13 @@ footer {
     padding: 10px 0px 0 10px;
 }
 
+/* Profile Styles Start */
+.profile-img {
+    width: 250px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+}
+/* Profile Styles End */
