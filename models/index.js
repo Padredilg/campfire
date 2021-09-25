@@ -5,6 +5,7 @@ const Comment = require("./Comment");
 const Love = require("./Love");
 const Friendship = require('./Friendship');
 const Channel = require('./Channel');
+const UserChannel = require('./UserChannel');
 
 // USER-POST ASSOCIATIONS
 User.hasMany(Post, {
@@ -31,12 +32,12 @@ Comment.belongsTo(Post, {
 });
 
 //CHANNEL-USER ASSOCIATIONS
-User.hasMany(Channel, {
-  foreignKey: 'channel_id'
+User.belongsToMany(Channel, {
+  through:'UserChannel'
 })
 
-Channel.belongsTo(User, {
-  foreignKey: 'channel_id'
+Channel.belongsToMany(User, {
+  through:'UserChannel'
 })
 
 //USER-Love-POST ASSOCIATIONS

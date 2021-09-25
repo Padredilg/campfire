@@ -133,6 +133,14 @@ router.get('/post/:id', (req, res) => {
       });
 });
 
+router.get('/test', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('test');
+});
+
 
 
 module.exports = router;
