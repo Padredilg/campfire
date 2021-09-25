@@ -1,2 +1,6 @@
-{{!-- This Page must show all posts --}}
-HOMEPAGE
+{{!-- have two columns with bootstrap, one for menu, other for feed --}}
+<div class="col-md-9 col-sm-12">
+    {{#each posts as |post|}}
+    {{> post-info post }}
+    {{/each}}
+</div>
