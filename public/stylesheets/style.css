@@ -2,7 +2,7 @@
     --brownish: #4A403A;
     --redish: #A45D5D;
     --yellowish:#FFC069;
-    --greyish: #EFEFEF ;
+    --greyish: #b3b1b1;
 }
 
 *{
@@ -65,18 +65,43 @@ nav {
     transition: all .25s ease-in-out;
 }
 
-.fake-button{
-    margin: 10px 5px;
-    padding: 4px 15px;
-    color: white;
-}
-
 .link-button:hover{
     background: rgba(255,255,255,.3);
     border-radius: 10px 0 10px 0;
     color: white;
     transform: scale(1.1);
 }
+
+.action-button{
+    margin: 10px 5px;
+    padding: 4px 15px;
+    border-radius: 10px 0 10px 0;
+    color: white;
+    background-color:var(--brownish);
+    transition: all .25s ease-in-out;
+}
+
+.action-button:hover{
+    background-color: var(--greyish);
+    border-radius: 10px 0 10px 0;
+    color: white;
+    transform: scale(1.1);
+}
+
+.action-link {
+    color: var(--redish);
+}
+
+.action-link:hover {
+    color: var(--yellowish);
+}
+
+.fake-button{
+    margin: 10px 5px;
+    padding: 4px 15px;
+    color: white;
+}
+
 
 #home-button{
     padding: 0 40px;
