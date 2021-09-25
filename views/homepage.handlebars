@@ -1,12 +1,15 @@
-{{!-- This Page must show all posts --}}
-HOMEPAGE
+{{!-- have two columns with bootstrap, one for menu, other for feed --}}
 <div class="container">
-  <div class="row">
-    <div class="col-sm">
-      Friend List / Channels
+    <div class="row">
+        <div class="col-md-3 col-sm-12 menu">
+            Menu
+        </div>
+
+        {{!-- Global feed --}}
+        <div class="col-md-9 col-sm-12">
+            {{#each posts as |post|}}
+            {{> post-info post }}
+            {{/each}}
+        </div>
     </div>
-    <div class="col-sm">
-      {{>channel}}
-    </div>
-  </div>
 </div>
