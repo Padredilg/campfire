@@ -31,12 +31,12 @@ Comment.belongsTo(Post, {
 });
 
 //CHANNEL-USER ASSOCIATIONS
-Channel.hasMany(User, {
-  foreignKey: 'user_id'
+User.hasMany(Channel, {
+  foreignKey: 'channel_id'
 })
 
-User.belongsTo(Channel, {
-  foreignKey: 'user_id'
+Channel.belongsTo(User, {
+  foreignKey: 'channel_id'
 })
 
 //USER-Love-POST ASSOCIATIONS
