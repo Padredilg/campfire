@@ -15,10 +15,12 @@
 <body>
   <div class="wrapper">
     <header>
-      <h1 class="home"> <a id="home-button" href="/"> <i class="fab fa-free-code-camp"></i> Campfire</a> </h1>
-      {{#if loggedIn}}
-      <p class="greeting">Hi {{username}}, welcome back!</p>
-      {{/if}}
+      <div class="separate-items">
+        <h1 class="home"> <a id="home-button" href="/"> <i class="fab fa-free-code-camp"></i> Campfire</a> </h1>
+        {{#if loggedIn}}
+        <p class="greeting">Welcome, {{username}}!</p>
+        {{/if}}
+      </div>
       
       <nav>
         <div class="nav-section">
@@ -27,11 +29,6 @@
           <a class="link-button" href="/profile"> <i class="fas fa-user-alt"></i>My Profile</a>
           {{/if}}
         </div>
-        {{#if username}}
-        <div class="nav-section">
-            <h6 class="fake-button">{{username}}</h6>
-        </div>
-        {{/if}}
 
         <div class="nav-section">
           {{#if loggedIn}}
