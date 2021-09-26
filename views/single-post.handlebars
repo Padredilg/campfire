@@ -1,21 +1,24 @@
 <article class="post-wrapper col-md-8 col-sm-10">
     <div class="card post">
+
         <div class="card-header separate-items">
-            {{post.title}}
+
+            <div>
+                <i class="fas fa-lg fa-user-circle"></i>  {{post.user.username}} on {{format_date post.created_at}}
+            </div>
+
             {{#if post.edit}} 
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link"><i class="far fa-lg fa-edit"></i></a>
+            <a href="/post/edit/{{post.id}}" class="edit-link"><i class="far fa-lg fa-edit"></i></a>
             {{/if}}
+
         </div>
 
         <div class="card-body">
             <p class="card-text">{{post.content}}</p>
-            
-            <div class="card-text credentials">
-                by {{post.user.username}} on {{format_date post.created_at}}</br>
-            </div>
         </div>
     </div>
-    <i class="fas fa-heart"></i> <p class="likes-count">{{post.love_count}}</p> <button type="button" class="like-btn btn btn-danger">Like</button>
+    <i class="fas fa-heart"></i> <p class="loves-count">{{post.love_count}}</p> <button type="button" class="love-btn btn btn-danger">Love</button>
+
 </article>
 
 <div class="container">
@@ -43,5 +46,5 @@
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
-<script src="/javascript/like.js"></script>
+<script src="/javascript/love.js"></script>
 {{/if}}
