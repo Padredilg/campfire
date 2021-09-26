@@ -77,37 +77,6 @@ nav {
     margin: 11px 0 10px 4px;
 }
 
-.action-button{
-    margin: 10px 5px;
-    padding: 4px 15px;
-    border-radius: 10px 0 10px 0;
-    color: white;
-    background-color:var(--brownish);
-    transition: all .25s ease-in-out;
-}
-
-.action-button:hover{
-    background-color: var(--greyish);
-    border-radius: 10px 0 10px 0;
-    color: white;
-    transform: scale(1.1);
-}
-
-.action-link {
-    color: var(--redish);
-}
-
-.action-link:hover {
-    color: var(--yellowish);
-}
-
-.fake-button{
-    margin: 10px 5px;
-    padding: 4px 15px;
-    color: white;
-}
-
-
 #home-button{
     padding: 0 40px;
     border-radius: 0 75px 0px 45px;
@@ -134,12 +103,6 @@ nav {
 .fa-home, .fa-user-alt, .fa-sign-out-alt, .fa-sign-in-alt{
     color: white;
 }
-
-/* MENU START */
-.menu{
-    background-color: var(--greyish);
-}
-/* MENU ENDS */
 
 /*POSTS STARTS*/
 .post-wrapper{
@@ -189,7 +152,31 @@ nav {
 
 
 /*LOGIN STARTS*/
-#forms-section {
+.action-button{
+    margin: 10px 5px;
+    padding: 4px 15px;
+    border-radius: 10px 0 10px 0;
+    color: white;
+    background-color:var(--brownish);
+    transition: all .25s ease-in-out;
+}
+
+.action-button:hover{
+    background-color: var(--greyish);
+    border-radius: 10px 0 10px 0;
+    color: white;
+    transform: scale(1.1);
+}
+
+.action-link {
+    color: var(--redish);
+}
+
+.action-link:hover {
+    color: var(--yellowish);
+}
+
+#forms-section { /* not used as of 9/26/2021 1pm */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -199,7 +186,7 @@ nav {
     align-items: center;
 }
 
-.individual-form{
+.individual-form{ /* not used as of 9/26/2021 1pm */
     margin: 0 2% 0 2%;
 }
 
@@ -211,23 +198,35 @@ nav {
     color: white;
 }
 
-.general-button{
+.general-button{ /* not used as of 9/26/2021 1pm */
     background-color: var(--brownish);
     color: white;
 }
 
-.login-buttons {
+.login-buttons {/* not used as of 9/26/2021 1pm */
     display: flex;
     flex-direction: row;
     align-items: baseline;
     justify-content: flex-start;
 }
 
-.login-buttons a {
+.login-buttons a { /* not used as of 9/26/2021 1pm */
     margin-left: 18px;
 }
 
 /* LOGIN ENDS */
+
+/* MENU START */
+.menu{
+    background-color: var(--greyish);
+}
+
+.menu-button {
+    color: var(--redish);
+}
+
+/* MENU ENDS */
+
 
 
 /* DASHBOARD BEGINS */
