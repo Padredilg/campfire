@@ -343,9 +343,19 @@ footer {
     width: 250px;
 }
 
+.profile-container {
+    width: 100%;
+}
+
 .profile-info {
     display: flex;
     align-items: center;
     color: whitesmoke;
+    width: 100%;
+}
+
+.user-bio-edit {
+    width: 100%;
+    height: 50%;
 }
 /* Profile Styles End */

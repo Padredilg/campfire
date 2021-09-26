@@ -49,12 +49,12 @@ router.get('/:id', ({params}, res) => {
 });
 
 // find all friendships of specific user
-router.get('/user/:id', (req, res) => {
+router.get('/user', (req, res) => {
   Friendship.findAll({
     where: {
       [Op.or] :[
-        {requesting_user_id: req.params.id},
-        {requested_user_id: req.params.id}
+        {requesting_user_id: req.session.user_id},
+        {requested_user_id: req.session.user_id}
       ]
     },
     include: [
