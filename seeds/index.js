@@ -15,7 +15,13 @@ const seedAll = async () => {
   await seedUsers();
   console.log('--------------');
 
+  await seedChannels();
+  console.log('--------------');
+
   await seedPosts();
+  console.log('--------------');
+
+  await seedUserChannels();
   console.log('--------------');
 
   await seedComments();
@@ -27,11 +33,6 @@ const seedAll = async () => {
   await seedFriendships();
   console.log('--------------');
 
-  await seedChannels();
-  console.log('--------------');
-
-  await seedUserChannels();
-  console.log('--------------');
 
   process.exit(0);
 };

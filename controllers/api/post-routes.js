@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
             'content',
             'created_at',
             'user_id',
+            'channel_id',
             [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']//this property displays the love_count
         ],
         order: [['created_at', 'DESC']],
@@ -52,6 +53,8 @@ router.get('/:id', (req, res) => {
             'id',
             'content',
             'created_at',
+            'user_id',
+            'channel_id',
             [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']
           ],
         include: [
@@ -88,7 +91,8 @@ router.post('/', (req, res) => {
     // expects {title: 'Taskmaster goes public!', content: 'https://taskmaster.com/press', user_id: 1}
     Post.create({
         content: req.body.content,
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
+        channel_id: req.body.channel_id
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {

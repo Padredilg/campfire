@@ -70,6 +70,13 @@ Post.init(
         model: 'user',
         key: 'id'
       }
+    },
+    channel_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'channel',
+        key: 'id'
+      }
     }
   },
   {

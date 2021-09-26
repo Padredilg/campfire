@@ -40,6 +40,14 @@ Channel.belongsToMany(User, {
   through: UserChannel
 })
 
+// CHANNEL-POST ASSOCIATIONS
+Channel.hasMany(Post, {
+  foreignKey: 'channel_id'
+});
+Post.belongsTo(Channel, {
+  foreignKey: 'channel_id'
+});
+
 //USER-Love-POST ASSOCIATIONS
 User.hasMany(Love, {
   foreignKey: 'user_id'
