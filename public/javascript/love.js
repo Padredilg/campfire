@@ -4,6 +4,8 @@ async function upvoteClickHandler(event) {
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
+
+    // Get id from from post
   
     const response = await fetch('/api/posts/uplove', {
         method: 'PUT',
@@ -22,5 +24,9 @@ async function upvoteClickHandler(event) {
         alert(response.statusText);
     }
 }
-  
-  document.querySelector('.love-btn').addEventListener('click', upvoteClickHandler);
+
+var allBtns = document.querySelectorAll(".love-btn"); //[button1 , button2]
+//for loop on the buttons
+allBtns.forEach((button)=>{
+    button.addEventListener("click", upvoteClickHandler);
+})
