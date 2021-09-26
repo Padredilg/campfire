@@ -5,29 +5,54 @@
             <ul>
                 <li>
                     {{!-- Whether or not a user is logged in, they will always see the global posts menu option --}}
-                    <a href="#" class="link-button menu-button mt-1"><i class="fas fa-solid fa-globe mr-2"></i>Global Channel</a>
+                    <a href="#" class="link-button menu-button"><i class="fas fa-solid fa-globe mr-2"></i>Global Channel</a>
                 </li>
                 {{#if loggedIn}}
-                    {{!-- If the user is logged in, they will see their list of friends and the private channels to which they belong --}}
+                    {{!-- If the user is logged in, they will see buttons for their list of friends and for the private channels to which they belong --}}
                     <li>
-                        <a href="#" class="link-button menu-button mt-1"><i class="fas fa-solid fa-user-group mr-1"></i>Friends</a>
+                        <button type="button" id="menu-friends" class="link-button menu-button"><i class="fas fa-solid fa-user-group mr-1"></i>Friends</button>
+                        <div id="friend-list">
+                            {{!-- placeholder to get filled in when the user chooses to see the friends --}}
+                        </div>
                     </li>
                     <li>
-                        <a href="#" class="link-button menu-button mt-1"><i class="fas fa-solid fa-lock mr-2"></i>Private Channels</a>
+                        <a href="#" class="link-button menu-button"><i class="fas fa-solid fa-lock mr-2"></i>Private Channels</a>
                     </li>
                 {{/if}}
             </ul>
         </div>
 
+        {{!--
+            Deciding what to display could involved nested if statements since only one of the options should be true at a given time,
+            but 1) this gives us the flexibility to display more than one option at a time if that ever makes sense, and 2) nested ifs can start
+            to look messy and be annoying to maintain.
+         --}}
         {{!-- Global feed --}}
+        {{#if globalFeed}}
         <div class="col-md-9 col-sm-12">
             {{#each posts as |post|}}
             {{> post-info post }}
             {{/each}}
         </div>
-
-        
+        {{/if}}
+        {{!-- show the selected friend's profile --}}
+        {{#if friendProfile}}
+        <div class="col-md-9 col-sm-12">
+            Here is your friend's profile page!
+        </div>
+        {{/if}}
+        {{!-- show the posts from the selected private channel --}}
+        {{#if privateChannel}}
+            <div class="col-md-9 col-sm-12">
+                {{#each posts as |post|}}
+                {{> post-info post }}
+                {{/each}}
+            </div>
+        {{/if}}
     </div>
 </div>
 
 <script src="/javascript/love.js"></script>
+{{#if loggedIn}}
+<script src="/javascript/menu.js"></script>
+{{/if}}
