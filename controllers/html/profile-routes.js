@@ -2,10 +2,6 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const {Post, User, Comment} = require('../../models');
 
-router.get('/', (req, res) => {
-  res.render('profile');
-});
-
 router.get('/:id', (req, res) => {
   Post.findAll({
     attributes: [
@@ -16,9 +12,6 @@ router.get('/:id', (req, res) => {
         'user_id',
         [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']
     ],
-    where: {
-      user_id: req.params.id
-    },
     include: [
         {
             model: Comment,
@@ -30,7 +23,10 @@ router.get('/:id', (req, res) => {
         },
         {
             model: User,
-            attributes: ['username', 'bio', 'img_url']
+            attributes: ['id', 'username', 'bio', 'img_url'],
+            where: {
+              id: req.params.id
+            }
         }
     ]
 })
@@ -48,6 +44,11 @@ router.get('/:id', (req, res) => {
     });
 
     const user = posts[0].user;
+    if (user.id === req.session.user_id) {
+      user.edit = true;
+    } else {
+      user.edit = false;
+    }
 
     res.render('profile', {
         user,

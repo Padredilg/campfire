@@ -1,15 +1,20 @@
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-3 px-4">
   <div class="row pt-2">
     <div class="col-4">
-      <img class="profile-img"
+      <img id ="user-img" class="profile-img"
            src="{{user.img_url}}"
            alt="Profile picture here">
     </div>
-    <div class="col profile-info">
+    <div class="col-7 profile-info">
       <div class="profile-container">
-        <h2>{{user.username}}</h2>
-        <p>{{user.bio}}</p>
+        <h2 id="user-username">{{user.username}}</h2>
+        <p id="user-bio">{{user.bio}}</p>
       </div>
+    </div>
+    <div class="col-1">
+      {{#if user.edit}}
+          <i id="edit" class="far fa-lg fa-edit"></i>
+      {{/if}}
     </div>
   </div>
 
@@ -23,3 +28,5 @@
   </div>
 
 </div>
+
+<script src="/javascript/profile.js"></script>

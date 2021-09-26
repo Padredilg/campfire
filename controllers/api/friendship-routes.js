@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {User, Friendship} = require('../../models');
+const {Op} = require('sequelize');
 
 router.get('/', (req, res) => {
   Friendship.findAll({
@@ -23,9 +24,39 @@ router.get('/', (req, res) => {
     });
 });
 
+// find specific friendship by id
 router.get('/:id', ({params}, res) => {
   Friendship.findOne({
     where: {id: params.id},
+    include: [
+      {
+        model: User,
+        as: 'requested',
+        attributes: ['username']
+      },
+      {
+        model: User,
+        as: 'requesting',
+        attributes: ['username']
+      }
+    ]
+  })
+    .then(dbFriendshipData => res.json(dbFriendshipData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// find all friendships of specific user
+router.get('/user/:id', (req, res) => {
+  Friendship.findAll({
+    where: {
+      [Op.or] :[
+        {requesting_user_id: req.params.id},
+        {requested_user_id: req.params.id}
+      ]
+    },
     include: [
       {
         model: User,
