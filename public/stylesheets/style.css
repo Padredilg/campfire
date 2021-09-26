@@ -25,10 +25,7 @@ a:hover {
 
 body {
     font-family: Montserrat, Helvetica, Arial, sans-serif;
-<<<<<<< HEAD
-=======
     background: black;
->>>>>>> develop
 }
 
 
@@ -349,5 +346,6 @@ footer {
 .profile-info {
     display: flex;
     align-items: center;
+    color: whitesmoke;
 }
 /* Profile Styles End */
