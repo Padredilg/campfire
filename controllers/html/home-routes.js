@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'content',
-            'title',
             'created_at',
             'user_id',
             [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']
@@ -85,7 +84,6 @@ router.get('/post/:id', (req, res) => {
         attributes: [
             'id',
             'content',
-            'title',
             'created_at',
             'user_id',
             [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']
@@ -158,7 +156,6 @@ router.get('/test', (req, res) => {
             loggedIn: req.session.loggedIn,
             username: req.session.username
         });
-        console.log(data.channels[0].name)
 
     })
     .catch(err => {
