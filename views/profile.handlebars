@@ -1,21 +1,21 @@
-<div class="container mt-3 border border-dark">
+<div class="container-fluid mt-3">
   <div class="row pt-2">
     <div class="col-4">
       <img class="profile-img"
-           src="https://blueprintdigital.com/wp-content/uploads/2014/11/stock-photo-happy-man-giving-okay-sign-portrait-on-white-background-141327337.jpg"
+           src="{{user.img_url}}"
            alt="Profile picture here">
     </div>
     <div class="col profile-info">
       <div class="profile-container">
-        <h2>John Smith</h2>
-        <h3>Bio</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi at qui, non nesciunt vitae minima impedit quod necessitatibus incidunt sequi possimus esse quaerat eaque nostrum nam, quam autem quasi repudiandae.</p>
+        <h2>{{user.username}}</h2>
+        <p>{{user.bio}}</p>
       </div>
     </div>
   </div>
 
-  <div class="row mt-3">
-    <div class="col">
+  <div class="row mt-5">
+    <div class="col-4"></div>
+    <div class="col-8">
       {{#each posts as |post|}}
       {{> post-info post }}
       {{/each}}

@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
         [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']
     ],
     where: {
-      id: req.params.id
+      user_id: req.params.id
     },
     include: [
         {
@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
         },
         {
             model: User,
-            attributes: ['username']
+            attributes: ['username', 'bio', 'img_url']
         }
     ]
 })
@@ -47,7 +47,10 @@ router.get('/:id', (req, res) => {
       return post;
     });
 
+    const user = posts[0].user;
+
     res.render('profile', {
+        user,
         posts,
         loggedIn: req.session.loggedIn,
         username: req.session.username
