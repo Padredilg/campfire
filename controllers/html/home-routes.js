@@ -132,7 +132,7 @@ router.get('/post/:id', (req, res) => {
       });
 });
 
-//
+//Edit a post
 router.get('/post/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
