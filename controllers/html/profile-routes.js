@@ -5,20 +5,22 @@ const {Post, User, Comment} = require('../../models');
 router.get('/', (req, res) => {
   User.findOne({
     // where: {id: req.session.user_id},
-    where: {id: 1},
+    where: {id: req.session.user_id},
     attributes: ['id', 'username', 'bio', 'img_url'],
-    // include: [
-    //   {
-    //     model: Post,
-    //     attributes: [
-    //       'id',
-    //       'content',
-    //       'title',
-    //       'created_at',
-    //       'user_id',
-    //       [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']
-    //     ],
-    //     order: [['created_at', 'DESC']],
+    include: [
+      {
+        model: Post,
+        attributes: [
+          'id',
+          'content',
+          'title',
+          'created_at',
+          'user_id',
+          [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']
+        ],
+        order: [['created_at', 'DESC']]
+      }
+    ]
     //     include: [
     //       {
     //         model: Comment,
