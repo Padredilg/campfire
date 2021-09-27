@@ -1,20 +1,32 @@
-<div class="container-fluid mt-3 px-4">
+<div class="container-fluid mt-3 mx-auto">
   <div class="row pt-2">
-    <div class="col-4">
-      <img id ="user-img" class="profile-img"
+    <div class="col-3">
+      <img id ="user-img" class="mx-4 profile-img"
            src="{{user.img_url}}"
            alt="Profile picture here">
     </div>
-    <div class="col-7 profile-info">
+    {{#if user.edit}}
+    <div class="col-8 profile-info">
       <div class="profile-container">
         <h2 id="user-username">{{user.username}}</h2>
         <p id="user-bio">{{user.bio}}</p>
       </div>
     </div>
     <div class="col-1">
-      {{#if user.edit}}
-          <i id="edit" class="far fa-lg fa-edit"></i>
-      {{/if}}
+      <i id="edit" class="far fa-lg fa-edit"></i>
+    {{else}}
+    <div class="col-7 profile-info">
+      <div class="profile-container">
+        <h2 id="user-username">{{user.username}}</h2>
+        <p id="user-bio">{{user.bio}}</p>
+      </div>
+    </div>
+    <div class="col-2">
+      <button type="button" id="menu-friends" class="link-button menu-button">
+        <i class="fas fa-solid fa-user-group mr-1"></i>
+        Add Friend
+      </button>
+    {{/if}}
     </div>
   </div>
 
