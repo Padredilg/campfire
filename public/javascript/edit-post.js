@@ -22,7 +22,7 @@ async function editFormHandler(event) {
     });
 
     if (response.ok) {
-        document.location.href = '/homepage';
+        document.location.href = '/';
     } 
     else {
         alert(response.statusText);
