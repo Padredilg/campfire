@@ -1,7 +1,10 @@
-let socket = io(); 
+const socket = io(); 
 let form = document.getElementById('form');
 let input = document.getElementById('input');
 let messages = document.getElementById('posts');
+
+
+let x = socket.emit('new-user', name)
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -16,6 +19,4 @@ socket.on('chat message', function(msg) {
     item.textContent = msg;
     messages.appendChild(item);
     console.log('message: '+ msg)
-
-  
 });

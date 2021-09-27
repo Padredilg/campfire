@@ -26,9 +26,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(sess));
 app.use(routes);
+const rooms = {}
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    socket.on('new-user', (name) => {
+
+    });
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
     socket.on('disconnect', () => {
         console.log('user disconnected');
     });
