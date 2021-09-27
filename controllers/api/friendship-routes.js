@@ -26,7 +26,6 @@ router.get('/', (req, res) => {
 
 // get all the friends the logged in user has
 router.get('/friends', (req, res) => {
-    console.log(`============================/api/friendships/friends session.user_id ${req.session.user_id}`);
     Friendship.findAll({
         where: {
             [Op.or]: [
@@ -48,16 +47,7 @@ router.get('/friends', (req, res) => {
         ]
     })
         .then(dbData => {
-            console.log("got the data");
-            const friends = dbData.map(friendship => {
-                if (friendship.requesting.user_id === req.session.user_id) {
-                    return friendship.requested;
-                } else {
-                    return friendship.requesting;
-                }
-            });
-            console.log(`user id {req.session._userid is friends with: ${friends}`);
-            res.json(friends);
+            res.json({ friends: dbData, userid: req.session.user_id} );
         })
         .catch(err => {
             console.log("can't get the data");

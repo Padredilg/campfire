@@ -97,7 +97,7 @@ nav {
 }
 
 .fa-free-code-camp{
-    color: var(--redish);
+    color: var(--reddish);
 }
 
 .fa-home, .fa-user-alt, .fa-sign-out-alt, .fa-sign-in-alt {
@@ -169,7 +169,7 @@ nav {
 }
 
 .action-link {
-    color: var(--redish);
+    color: var(--reddish);
 }
 
 .action-link:hover {
@@ -222,7 +222,38 @@ nav {
 }
 
 .menu-button {
-    color: var(--redish);
+    color: var(--reddish);
+}
+
+#friend-list {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#friend-list ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.menu-friend-button {
+    color: var(--reddish);
+    margin: 0px 20px 5px 20px;
+    padding: 0px 15px 4px 15px;
+    transition: all .25s ease-in-out;
+}
+
+.menu-friend-button:hover {
+    background: rgba(255,255,255,.3);
+    border-radius: 10px 0 10px 0;
+    color: white;
+    transform: scale(1.1);
+}
+
+.menu-friend-button:before {
+	content: '\f2bd';
+	font-family:  "Font Awesome 6 Free Solid", "Font Awesome 6 Free" !important;;
+    font-weight: 900;
+	padding-right: 10px;
 }
 
 /* MENU ENDS */
