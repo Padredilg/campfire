@@ -41,7 +41,8 @@ html {
 }
 
 main {
-    height: calc(100vh - 175px);
+    padding: 0 0 50px 0;
+    min-height: calc(100vh - 175px);
 }
 
 nav {
