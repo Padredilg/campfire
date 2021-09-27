@@ -36,7 +36,17 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [4]
+        len: 4
+      }
+    },
+    bio: {
+      type: DataTypes.TEXT,
+    },
+    img_url: {
+      type: DataTypes.STRING,
+      defaultValue: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+      validate: {
+        is: URL
       }
     }
   },
@@ -47,7 +57,7 @@ User.init(
         return newUserData;
       },
       async beforeUpdate(updatedUserData) {
-        updatedUserData.password = await bcrypt.hash(newUserData.password, 10)
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10)
         return updatedUserData;
       }
     },

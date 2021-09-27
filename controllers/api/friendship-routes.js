@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {User, Friendship} = require('../../models');
+const {Op} = require('sequelize');
 
 router.get('/', (req, res) => {
   Friendship.findAll({
@@ -88,7 +89,6 @@ router.get('/:id', ({params}, res) => {
       res.status(500).json(err);
     });
 });
-
 
 
 router.post('/', ({body}, res) => {

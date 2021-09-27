@@ -1,0 +1,32 @@
+<div class="container-fluid mt-3 px-4">
+  <div class="row pt-2">
+    <div class="col-4">
+      <img id ="user-img" class="profile-img"
+           src="{{user.img_url}}"
+           alt="Profile picture here">
+    </div>
+    <div class="col-7 profile-info">
+      <div class="profile-container">
+        <h2 id="user-username">{{user.username}}</h2>
+        <p id="user-bio">{{user.bio}}</p>
+      </div>
+    </div>
+    <div class="col-1">
+      {{#if user.edit}}
+          <i id="edit" class="far fa-lg fa-edit"></i>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-4"></div>
+    <div class="col-8">
+      {{#each posts as |post|}}
+      {{> post-info post }}
+      {{/each}}
+    </div>
+  </div>
+
+</div>
+
+<script src="/javascript/profile.js"></script>
