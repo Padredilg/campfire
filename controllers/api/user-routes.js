@@ -26,7 +26,23 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         },
         include: [
-            {model: Channel}
+            {model: Channel},
+            {
+                model: Post,
+                attributes: ['id', 'content', 'created_at']
+            },
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: Post
+                }
+            },
+            {
+                model: Post,
+                through: Love,
+                as: 'loved_posts'
+            }
         ]
     })
         .then(dbUserData => {
