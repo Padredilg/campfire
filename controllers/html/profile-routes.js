@@ -30,48 +30,29 @@ router.get('/', (req, res) => {
       }
     ]
   })
-  .then(dbPostData => {
-    res.json(dbPostData);
-    // const posts = dbPostData.map(post => {
-    //   post = post.get({ plain: true })
+  .then(dbUserData => {
+    const user = dbUserData.get({plain: true});
+    const posts = user.posts.map(post => {
+      if(post.user_id === req.session.user_id){
+        post.edit = true;
+      } else {
+        post.edit = false;
+      }
+      return post;
+    });
 
-    //   if(post.user_id === req.session.user_id){
-    //       post.edit = true;
-    //   }
-    //   else{
-    //       post.edit = false;
-    //   }
-    //   return post;
-    // });
-
-    // let user;
-    // if (posts.length > 0) {
-    //   user = posts[0].user;
-    //   if (user.id === req.session.user_id) {
-    //     user.edit = true;
-    //   } else {
-    //     user.edit = false;
-    //   }
-    // } 
-
-    // let renderOptions;
-    // if (user) {
-    //   renderOptions = {
-    //     user,
-    //     posts,
-    //     loggedIn: req.session.loggedIn,
-    //     username: req.session.username
-    //   }
-    // } else {
-    //   renderOptions = {
-    //     posts,
-    //     loggedIn: req.session.loggedIn,
-    //     username: req.session.username
-    //   }
-    // }
-    // console.log(renderOptions);
-
-    // res.render('profile', {renderOptions});
+    if (user.id === req.session.user_id) {
+      user.edit = true;
+    } else {
+      user.edit = false;
+    }
+    
+    res.render('profile', {
+      user,
+      posts,
+      loggedIn: req.session.loggedIn,
+      username: req.session.username
+    });
   });
 });
 

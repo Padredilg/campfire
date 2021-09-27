@@ -41,7 +41,7 @@ html {
 }
 
 main {
-    margin: 0 0 50px 0;
+    height: calc(100vh - 175px);
 }
 
 nav {
