@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
         ]
     })
     .then(dbPostData => {
-        // pass a single post object into the homepage template
+        // pass all the postst into the homepage template
         const posts = dbPostData.map(post => {
             post = post.get({ plain: true })
 
@@ -49,7 +49,8 @@ router.get('/', (req, res) => {
         res.render('homepage', {
             posts,
             loggedIn: req.session.loggedIn,
-            username: req.session.username
+            username: req.session.username,
+            globalFeed: true
         });
     })
     .catch(err => {
