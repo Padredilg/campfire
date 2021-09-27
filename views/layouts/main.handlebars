@@ -9,28 +9,26 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/animation.css">
 </head>
 
 <body>
   <div class="wrapper">
     <header>
-      <h1 class="home"> <a id="home-button" href="/"> <i class="fab fa-free-code-camp"></i> Campfire</a> </h1>
-      {{#if loggedIn}}
-      <p class="greeting">Hi {{username}}, welcome back!</p>
-      {{/if}}
+      <div class="separate-items">
+        <h1 class="home"> <a id="home-button" href="/"> <i class="fab fa-free-code-camp"></i> Campfire</a> </h1>
+        {{#if loggedIn}}
+        <p class="greeting">Welcome, {{username}}!</p>
+        {{/if}}
+      </div>
       
       <nav>
         <div class="nav-section">
           <a class="link-button" href="/"> <i class="fas fa-home"></i> Home</a>
           {{#if loggedIn}}
-          <a class="link-button" href="/dashboard"> <i class="fas fa-user-alt"></i>Dashboard</a>
+          <a class="link-button" href="/profile"> <i class="fas fa-user-alt"></i>My Profile</a>
           {{/if}}
         </div>
-        {{#if username}}
-        <div class="nav-section">
-            <h6 class="fake-button">{{username}}</h6>
-        </div>
-        {{/if}}
 
         <div class="nav-section">
           {{#if loggedIn}}
@@ -43,9 +41,16 @@
       </nav>
     </header>
 
-    <main>
-      {{{ body }}}
-    </main>
+<div class="stars">
+  <div class="twinkling">
+    <div class="clouds">
+      <main>
+        {{{ body }}}
+      </main>
+    </div>
+  </div>
+</div>
+
     
     <footer>
       Thanks for visiting!

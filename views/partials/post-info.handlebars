@@ -1,9 +1,11 @@
 <article class="post-wrapper col-xl-7 col-lg-9 col-md-10 col-sm-11 block">
     <div class="card post">
         <div class="card-header separate-items">
-            {{title}}
+            <div>
+                <i class="fas fa-lg fa-user-circle"></i>  {{user.username}} on {{format_date created_at}}
+            </div>
             {{#if edit}} 
-            <a href="/dashboard/edit/{{id}}" class="edit-link"> <i class="far fa-lg fa-edit"></i> </a>
+            <a href="/post/edit/{{id}}" class="edit-link"> <i class="far fa-lg fa-edit"></i> </a>
             {{/if}}
         </div>
 
@@ -11,7 +13,7 @@
             <p class="card-text">{{content}}</p>
             
             <div class="card-text credentials">
-                by {{user.username}} on {{format_date created_at}}</br>
+                
                 <i class="fas fa-heart"></i> {{love_count}}   
                 |
                 <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
