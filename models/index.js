@@ -52,17 +52,14 @@ Post.belongsTo(Channel, {
 User.hasMany(Love, {
   foreignKey: 'user_id'
 });
+Love.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
 Post.hasMany(Love, {
   foreignKey: 'post_id'
 });
-User.belongsToMany(Post, {
-  through: Love,
-  as: 'loved_posts',
-  foreignKey: 'user_id'
-});
-Post.belongsToMany(User, {
-  through: Love,
-  as: 'loved_posts',
+Love.belongsTo(Post, {
   foreignKey: 'post_id'
 });
 
@@ -82,7 +79,6 @@ Friendship.belongsTo(User, {
   as: 'requested',
   foreignKey: 'requested_user_id'
 });
-
 
 module.exports = {User, Post, Love, Comment, Friendship, Channel, UserChannel};
 

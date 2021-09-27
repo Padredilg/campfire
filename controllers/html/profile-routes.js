@@ -4,7 +4,6 @@ const {Post, User, Comment} = require('../../models');
 
 router.get('/', (req, res) => {
   User.findOne({
-    // where: {id: req.session.user_id},
     where: {id: req.session.user_id},
     attributes: ['id', 'username', 'bio', 'img_url'],
     include: [
@@ -13,26 +12,23 @@ router.get('/', (req, res) => {
         attributes: [
           'id',
           'content',
-          'title',
           'created_at',
           'user_id',
-          [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']
+          [sequelize.literal('(SELECT COUNT(*) FROM love WHERE love.post_id = id)'), 'love_count']
         ],
-        order: [['created_at', 'DESC']]
+        order: [['created_at', 'DESC']],
+        include: [
+          {
+            model: Comment,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+          }
+        ]
       }
     ]
-    //     include: [
-    //       {
-    //         model: Comment,
-    //         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-    //             include: {
-    //                 model: User,
-    //                 attributes: ['username']
-    //             }
-    //       }
-    //     ]
-    //   }
-    // ]
   })
   .then(dbPostData => {
     res.json(dbPostData);
