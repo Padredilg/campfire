@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+        {{!-- {{>menu data}} --}}
+        {{#each channels}}
+        <button data-channelID="{{id}}">{{name}}</button>
+        {{/each}}
+    </div>
+    <div class="col-sm">
+      {{>channel}}
+    </div>
+  </div>
+</div>
+
