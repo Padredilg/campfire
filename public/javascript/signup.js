@@ -26,6 +26,7 @@ async function signupFormHandler(event) {
             // validatePassword already displayed the error message
             return;
         }
+
         const response = await fetch('/api/users', {
             method: 'post',
             body: JSON.stringify({
