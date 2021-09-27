@@ -141,7 +141,6 @@ router.get('/post/edit/:id', withAuth, (req, res) => {
         attributes: [
             'id',
             'content',
-            'title',
             'created_at',
             'user_id',
             [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']

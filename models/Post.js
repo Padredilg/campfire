@@ -32,7 +32,6 @@ class Post extends Model {
             attributes: [
                 "id",
                 "content",
-                "title",
                 "created_at",
                 [
                     sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'),
@@ -56,10 +55,6 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    // title:{
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
     // picture: {
     //   type: DataTypes.BLOB,
     //   allowNull: true,
