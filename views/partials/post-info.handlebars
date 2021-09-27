@@ -3,7 +3,7 @@
 
         <div class="card-header separate-items">
             <div>
-                <i class="fas fa-lg fa-user-circle"></i>  {{user.username}} - {{format_date created_at}}
+                <i class="fas fa-lg fa-user-circle"></i>  {{user.username}} {{format_date created_at}}
             </div>
             {{#if edit}} 
             <a href="/post/edit/{{id}}" class="edit-link"> <i class="far fa-lg fa-edit"></i> </a>

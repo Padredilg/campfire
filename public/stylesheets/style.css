@@ -49,7 +49,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: var(--brownish);
+    background-color: #4A403A;
     padding: 0 5px;
 }
 
@@ -64,6 +64,7 @@ nav {
     margin: 10px 5px;
     padding: 4px 15px;
     color: white;
+    background: none;
     transition: all .25s ease-in-out;
 }
 
@@ -140,6 +141,7 @@ nav {
 .post {
     background: var(--greyish);
     margin: 0 0 5px 0;
+    background: rgba(255, 255, 255, .7);
 }
 
 .separate-items{
@@ -179,7 +181,53 @@ nav {
 
 
 /*LOGIN STARTS*/
-.action-button{
+#forms-section { /* not used as of 9/26/2021 1pm */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 40px 0;
+    padding: 30px 50px;
+    background: rgb(255, 255, 255, .35);
+
+    align-items: center;
+}
+
+.individual-form{ /* not used as of 9/26/2021 1pm */
+    margin: 0 2% 0 2%;
+}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: var(--brownish);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    color: white;
+}
+
+.general-button{ /* not used as of 9/26/2021 1pm */
+    background-color: var(--brownish);
+    color: white;
+    transition: all .15s ease-in-out;
+}
+
+.general-button:hover{
+    background-color: var(--reddish);
+    transform: scale(1.025);
+    color: white;;
+}
+
+.login-buttons {/* not used as of 9/26/2021 1pm */
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+}
+
+.login-buttons a { /* not used as of 9/26/2021 1pm */
+    margin-left: 18px;
+}
+
+/* .action-button{
     margin: 10px 5px;
     padding: 4px 15px;
     border-radius: 10px 0 10px 0;
@@ -201,45 +249,7 @@ nav {
 
 .action-link:hover {
     color: var(--yellowish);
-}
-
-#forms-section { /* not used as of 9/26/2021 1pm */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 40px 0;
-    padding: 30px 50px;
-    background: var(--yellowish);
-    align-items: center;
-}
-
-.individual-form{ /* not used as of 9/26/2021 1pm */
-    margin: 0 2% 0 2%;
-}
-
-.card-header {
-    padding: .75rem 1.25rem;
-    margin-bottom: 0;
-    background-color: var(--brownish);
-    border-bottom: 1px solid rgba(0,0,0,.125);
-    color: white;
-}
-
-.general-button{ /* not used as of 9/26/2021 1pm */
-    background-color: var(--brownish);
-    color: white;
-}
-
-.login-buttons {/* not used as of 9/26/2021 1pm */
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: flex-start;
-}
-
-.login-buttons a { /* not used as of 9/26/2021 1pm */
-    margin-left: 18px;
-}
+} */
 
 /* LOGIN ENDS */
 

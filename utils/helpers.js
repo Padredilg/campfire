@@ -15,11 +15,10 @@ module.exports = {
 
         const today = new Date();
         if(day == today.getDate() && month == today.getMonth()+1 && year == today.getFullYear()){
-            console.log('hello')
-            return `Today at ${hour}:${minutes} ${amPm}`;
+            return `- Today at ${hour}:${minutes} ${amPm}`;
         }
         else{
-            return `${month}/${day}/${year} at ${hour}:${minutes} ${amPm}`;
+            return `on ${month}/${day}/${year} at ${hour}:${minutes} ${amPm}`;
         }
     },
     format_plural: (word, amount) =>{
