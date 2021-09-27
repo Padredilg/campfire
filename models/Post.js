@@ -56,10 +56,10 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    title:{
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+    // title:{
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // },
     // picture: {
     //   type: DataTypes.BLOB,
     //   allowNull: true,
@@ -67,7 +67,14 @@ Post.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'User',
+        model: 'user',
+        key: 'id'
+      }
+    },
+    channel_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'channel',
         key: 'id'
       }
     }

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Love, Comment } = require('../../models');
+const { User, Post, Love, Comment, Channel, UserChannel } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // http://localhost:3001/api/users
@@ -26,21 +26,20 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         },
         include: [
+            {model: Channel},
             {
                 model: Post,
-                attributes: ['id', 'title', 'content', 'created_at']
+                attributes: ['id', 'content', 'created_at']
             },
             {
                 model: Comment,
                 attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
                 include: {
-                    model: Post,
-                    attributes: ['title']
+                    model: Post
                 }
             },
             {
                 model: Post,
-                attributes: ['title'],
                 through: Love,
                 as: 'loved_posts'
             }

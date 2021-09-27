@@ -15,15 +15,7 @@ socket.on('chat message', function(msg) {
     var item = document.createElement('li');
     item.textContent = msg;
     messages.appendChild(item);
+    console.log('message: '+ msg)
+
+  
 });
-
-
-// fetch(
-//     'https://api.giphy.com/v1/gifs/trending?api_key=HvaacROi9w5oQCDYHSIk42eiDSIXH3FN'
-//   )
-//     .then(response => {
-//       return response.json();
-//     })
-//     .then(data => {
-//       console.log(data);
-//     });
