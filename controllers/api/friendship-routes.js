@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
 
 // get all the friends the logged in user has
 router.get('/friends', (req, res) => {
-    console.log("============================/api/friendships/friends");
+    console.log(`============================/api/friendships/friends session.user_id ${req.session.user_id}`);
     Friendship.findAll({
         where: {
             [Op.or]: [
@@ -38,17 +38,17 @@ router.get('/friends', (req, res) => {
             {
                 model: User,
                 as: 'requested',
-                attributes: ['username', 'user_id']
+                attributes: ['username', 'id']
             },
             {
                 model: User,
                 as: 'requesting',
-                attributes: ['username', 'user_id']
+                attributes: ['username', 'id']
             }
         ]
     })
         .then(dbData => {
-            alert("got the data");
+            console.log("got the data");
             const friends = dbData.map(friendship => {
                 if (friendship.requesting.user_id === req.session.user_id) {
                     return friendship.requested;
@@ -56,39 +56,40 @@ router.get('/friends', (req, res) => {
                     return friendship.requesting;
                 }
             });
-            alert(`user id {req.session._userid is friends with: ${friends}`);
+            console.log(`user id {req.session._userid is friends with: ${friends}`);
             res.json(friends);
         })
         .catch(err => {
-            alert("can't get the data");
+            console.log("can't get the data");
             console.log(err);
             res.status(500).json(err);
         });
 });
   
+// find specific friendship by id
 router.get('/:id', ({params}, res) => {
-    console.log("========================= with an id");
-  Friendship.findOne({
-    where: {id: params.id},
-    include: [
-      {
-        model: User,
-        as: 'requested',
-        attributes: ['username']
-      },
-      {
-        model: User,
-        as: 'requesting',
-        attributes: ['username']
-      }
-    ]
-  })
-    .then(dbFriendshipData => res.json(dbFriendshipData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+    Friendship.findOne({
+      where: {id: params.id},
+      include: [
+        {
+          model: User,
+          as: 'requested',
+          attributes: ['username']
+        },
+        {
+          model: User,
+          as: 'requesting',
+          attributes: ['username']
+        }
+      ]
+    })
+      .then(dbFriendshipData => res.json(dbFriendshipData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
 
 
 router.post('/', ({body}, res) => {

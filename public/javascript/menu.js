@@ -6,7 +6,7 @@ async function menuFriendsHandler(event) {
     alert("menuFriendsHandler");
 
     // get the list of friends of the logged in user
-    const response = await fetch(`/api/friendships/1`, {
+    const response = await fetch(`/api/friendships/friends`, {
         method: 'get',
         //     body: JSON.stringify({fred: "fred"
         // }),
