@@ -64,8 +64,8 @@ router.post('/', (req, res) => {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
-        bio: req.body.bio,
-        img_url: req.body.img_url
+        // bio: req.body.bio,
+        // img_url: req.body.img_url
     })
     .then(dbUserData => {
         console.log(dbUserData);

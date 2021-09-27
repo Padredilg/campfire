@@ -105,6 +105,32 @@ nav {
 }
 
 /*POSTS STARTS*/
+
+.sort-by-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 0 0 0;
+}
+
+.sort-by-box h5 {
+    color: white;
+    padding: 0 0 7px 0;
+}
+
+.sort-by-box ul{
+    display: flex;
+}
+
+.sort-by-btn {
+    margin: 1px 0 0 15px;
+    background: var(--brownish);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 25px;
+}
+
 .post-wrapper{
     padding: 10px;
     margin: 0 auto;

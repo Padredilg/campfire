@@ -30,6 +30,14 @@
         {{!-- Global feed --}}
         {{#if globalFeed}}
         <div class="col-md-9 col-sm-12">
+            <div class="sort-by-box"> 
+                <h5>Sort By: </h5>
+                <ul>
+                    <a class="sort-by-btn" href="/oldest"><li>Oldest</li></a>
+                    <a class="sort-by-btn" href="/newest"><li></li>Newest</a>
+                    <a class="sort-by-btn" href="/most-popular"><li>Most Popular</li></a>
+                </ul>
+            </div>
             {{#each posts as |post|}}
             {{> post-info post }}
             {{/each}}
