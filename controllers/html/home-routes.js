@@ -3,9 +3,6 @@ const sequelize = require('../../config/connection');
 const { Post, User, Comment, Channel } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//When Login works withAuth on single-post
-
-
 
 //Login Page
 router.get('/login', (req, res) => {
