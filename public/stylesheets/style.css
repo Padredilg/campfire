@@ -221,25 +221,28 @@ nav {
     background-color: var(--greyish);
 }
 
-.menu-button {
+.menu-button, .menu-button:active {
     color: var(--reddish);
+    background-color: transparent;
 }
 
-#friend-list {
+#friend-list { /* fix these - using 'important' isn't good for final code */
     margin: 0 !important;
     padding: 0 !important;
 }
 
-#friend-list ul {
+#friend-list ul {  /* fix these - using 'important' isn't good for final code */
     margin: 0 !important;
     padding: 0 !important;
 }
 
-.menu-friend-button {
+.menu-friend-button, .menu-friend-button:active {
     color: var(--reddish);
     margin: 0px 20px 5px 20px;
     padding: 0px 15px 4px 15px;
     transition: all .25s ease-in-out;
+    background-color: transparent;
+    border: none;
 }
 
 .menu-friend-button:hover {
