@@ -3,60 +3,6 @@ const sequelize = require('../../config/connection');
 const { Post, User, Comment, Channel } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//When Login works withAuth on single-post
-
-//Initial page - Global Feed
-router.get('/', (req, res) => {
-    console.log(req.session);
-    Post.findAll({
-        attributes: [
-            'id',
-            'content',
-            'created_at',
-            'user_id',
-            [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']
-        ],
-        include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
-    })
-    .then(dbPostData => {
-        // pass all the postst into the homepage template
-        const posts = dbPostData.map(post => {
-            post = post.get({ plain: true })
-
-            if(post.user_id === req.session.user_id){
-                post.edit = true;
-            }
-            else{
-                post.edit = false;
-            }
-            return post;
-        });
-
-        res.render('homepage', {
-            posts,
-            loggedIn: req.session.loggedIn,
-            username: req.session.username,
-            globalFeed: true
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
 
 //Login Page
 router.get('/login', (req, res) => {
@@ -132,7 +78,7 @@ router.get('/post/:id', (req, res) => {
       });
 });
 
-//
+//Edit a post
 router.get('/post/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
@@ -141,7 +87,6 @@ router.get('/post/edit/:id', withAuth, (req, res) => {
         attributes: [
             'id',
             'content',
-            'title',
             'created_at',
             'user_id',
             [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']
@@ -218,5 +163,70 @@ router.get('/test', (req, res) => {
         });
     }
 })
+
+//Initial page - Global Feed - :option? is an optional argument that for sorting purposes it can be left empty, or be oldest, newest, or most-popular
+router.get('/:option?', (req, res) => {
+    let orderBy = [['created_at', 'DESC']];
+    if (req.params.option === 'most-popular') {
+        orderBy = [[[sequelize.literal('love_count DESC')]]]
+    }
+    else if(req.params.option === 'oldest'){
+        orderBy = [['created_at', 'ASC']];
+    }
+    else if(req.params.option === 'newest'){
+        orderBy = [['created_at', 'DESC']];
+    }
+
+    console.log(req.session);
+    Post.findAll({
+        attributes: [
+            'id',
+            'content',
+            'created_at',
+            'user_id',
+            [sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'), 'love_count']
+        ],
+        include: [
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ],
+        order: orderBy,
+    })
+    .then(dbPostData => {
+        // pass all the postst into the homepage template
+        const posts = dbPostData.map(post => {
+            post = post.get({ plain: true })
+
+            if(post.user_id === req.session.user_id){
+                post.edit = true;
+            }
+            else{
+                post.edit = false;
+            }
+            return post;
+        });
+
+        res.render('homepage', {
+            posts,
+            loggedIn: req.session.loggedIn,
+            username: req.session.username,
+            globalFeed: true
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 module.exports = router;

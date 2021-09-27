@@ -20,8 +20,7 @@ const userdata = [
   {
     username: 'iboddam2',
     email: 'cstoneman2@last.fm',
-    password: 'password123',
-    bio: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio commodi ad non reprehenderit harum, quam mollitia porro minima, ipsa ut debitis? Odit facere ut iusto, quisquam laborum impedit at doloribus?'
+    password: 'password123'
   },
   {
     username: 'dstanmer3',

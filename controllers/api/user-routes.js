@@ -61,11 +61,13 @@ router.get('/:id', (req, res) => {
 
 // POST create a user, used on signup
 router.post('/', (req, res) => {
-  User.create({
-    username: req.body.username,
-    email: req.body.email,
-    password: req.body.password
-  })
+    User.create({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        // bio: req.body.bio,
+        // img_url: req.body.img_url
+    })
     .then(dbUserData => {
       console.log(dbUserData);
       
