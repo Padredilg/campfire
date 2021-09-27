@@ -23,9 +23,9 @@
         </div>
 
         {{!--
-            Deciding what to display could involved nested if statements since only one of the options should be true at a given time,
-            but 1) this gives us the flexibility to display more than one option at a time if that ever makes sense, and 2) nested ifs can start
-            to look messy and be annoying to maintain.
+            Deciding what to display could involve nested if statements since only one of the options should be true at a given time, but 
+            1) this gives us the flexibility to display more than one option at a time if that ever makes sense
+            2) nested ifs can start to look messy and be annoying to maintain.
          --}}
         {{!-- Global feed --}}
         {{#if globalFeed}}
@@ -35,12 +35,14 @@
             {{/each}}
         </div>
         {{/if}}
+
         {{!-- show the selected friend's profile --}}
         {{#if friendProfile}}
         <div class="col-md-9 col-sm-12">
             Here is your friend's profile page!
         </div>
         {{/if}}
+        
         {{!-- show the posts from the selected private channel --}}
         {{#if privateChannel}}
             <div class="col-md-9 col-sm-12">
