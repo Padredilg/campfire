@@ -41,6 +41,7 @@ User.init(
     },
     bio: {
       type: DataTypes.TEXT,
+      allowNull: true
     },
     img_url: {
       type: DataTypes.STRING,

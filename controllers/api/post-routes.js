@@ -88,7 +88,7 @@ router.get('/:id', (req, res) => {
 //POST create new post
 router.post('/', (req, res) => {
     console.log("POST", req);
-    // expects {title: 'Taskmaster goes public!', content: 'https://taskmaster.com/press', user_id: 1}
+    // expects {content: 'lorem ipsum nonna itteratus spector', user_id: 1}
     Post.create({
         content: req.body.content,
         user_id: req.session.user_id,
@@ -116,7 +116,7 @@ router.put('/uplove', (req, res) => {
     }
 });
 
-//PUT update a post (title and content)
+//PUT update a post (content)
 router.put('/:id', (req, res) => {
     Post.update(
         {
