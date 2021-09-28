@@ -1,0 +1,24 @@
+{{!-- user can enter a new message --}}
+
+{{!-- the messages that have been sent --}}
+<div class="card mx-3 my-3">
+    <div class="card-body" id="messages">
+
+    </div>
+</div>
+
+<div class="card mx-3 my-3">
+    <form class="chat-form card-body" id="chat-form">
+        <div class="form-group">
+            <textarea class="form-control mb-0" id="new-chat-message" rows="1"></textarea>
+        </div>
+        <button type="submit" class="btn general-button mt-0">Send</button>
+    </form>
+</div>
+
+<span id="username" style="display: none;">{{username}}</span>
+<span id="channel" style="display: none;">{{username}}</span>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascript/chat.js"></script>

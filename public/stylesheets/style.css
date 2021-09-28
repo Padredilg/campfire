@@ -70,6 +70,10 @@ nav {
     transition: all .25s ease-in-out;
 }
 
+.fas {
+    margin-right: 8;
+}
+
 .link-button:hover {
     background: rgba(255,255,255,.3);
     border-radius: 10px 0 10px 0;
@@ -516,3 +520,24 @@ footer {
   text-align: center;
 }
 /* PROFILE ENDS */
+
+/* CHAT START */
+#input {
+    border: 1px black solid;
+}
+
+.chat-user {
+    text-align: right;
+    padding-right: 4px !important;
+    margin-top: 2px;
+    background-color: var(--reddish);
+    border-radius: 2px;
+    color: white;
+}
+
+.chat_message {
+    text-align: left;
+    margin-top: 2px;
+    padding-left: 0;
+    margin-left: 4px;
+}
