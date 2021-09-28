@@ -1,13 +1,10 @@
 // DOM elements
 const editBioButtonEl = document.querySelector('#edit-bio-button');
 const bioEl = document.querySelector('#user-bio');
-const pictureEl = document.querySelector('#user-img');
+const uploadImageButtonEl = document.querySelector('#upload-img-button');
 const dragDropModalEl = document.querySelector('#drag-drop-modal');
 
-const editHandler = () => {
-  // event listener to update profile picture
-  pictureEl.addEventListener('click', dragDropHandler);
-  
+const editBio = () => {
   // textarea to edit bio
   const bioTextArea = document.createElement('textarea');
   bioTextArea.id = 'user-bio-edit';
@@ -15,41 +12,52 @@ const editHandler = () => {
   bioTextArea.textContent = bioEl.textContent;
   bioEl.replaceWith(bioTextArea);
 
-  //There needs to be a different logic to call saveHandler
   // wait 1 second and add event listener to save profile info
   setTimeout(() => {
-    document.addEventListener('click', saveHandler);
-  }, 1000);
+    document.addEventListener('click', saveBio);
+  }, 200);
 };
 
-const saveHandler = (event) => {
+const saveBio = (event) => {
   const bioTextArea = document.querySelector('#user-bio-edit');
 
-  if (event.target !== 
-    bioTextArea || 
-    dragDropModalEl || 
-    pictureEl) {
-
-    fetch(`/api/users/`, {
-      method: 'put',
-      body: JSON.stringify({
-          bio: bioTextArea.value
-      }),
-      headers: { 'Content-Type': 'application/json' }
-    })
-      .then(res => res.json())
-      .then(data => console.log(data));
+  if (event.target !== bioTextArea) {
+    // make PUT request
+    updateDatabase({bio: bioTextArea.value})
     
-
+    // reset bio textarea
     bioEl.textContent = bioTextArea.value;
     bioTextArea.replaceWith(bioEl);
 
-    document.removeEventListener('click', saveHandler);
+    document.removeEventListener('click', saveBio);
   }
 };
 
-const dragDropHandler = () => {
+const uploadImage = () => {
   dragDropModalEl.classList.remove('none');
+  // logic to upload image in uppy-bundle.js
+  // based off of uppy.js
 };
 
-editBioButtonEl.addEventListener('click', editHandler);
+const saveImgUrl = (img_url) => {
+  dragDropModalEl.classList.add('none');
+
+  updateDatabase({img_url});
+  location.reload();
+}
+
+// function to hold fetch request
+const updateDatabase = async (body) => {
+  const response = await fetch(`/api/users/`, {
+    method: 'put',
+    body: JSON.stringify(body),
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  const data = await response.json();
+
+  console.log(data);
+};
+
+editBioButtonEl.addEventListener('click', editBio);
+uploadImageButtonEl.addEventListener('click', uploadImage);
