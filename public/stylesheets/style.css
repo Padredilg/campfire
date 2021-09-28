@@ -278,18 +278,6 @@ a.sort-by-btn:hover {
 
 /* LOGIN ENDS */
 
-/* MENU START */
-.menu{
-    background-color: var(--greyish);
-}
-
-.menu-button {
-    color: var(--reddish);
-}
-
-/* MENU ENDS */
-
-
 
 /* DASHBOARD BEGINS */
 .section-title {
@@ -307,7 +295,7 @@ a.sort-by-btn:hover {
     justify-content: center;
     margin: 40px 0;
     padding: 30px 50px;
-    background: var(--yellowish);
+    background: rgb(179 177 177 / 50%);
     align-items: center;
     flex-wrap: nowrap;
 }
@@ -356,7 +344,7 @@ a.sort-by-btn:hover {
 }
   
 .comment:nth-child(odd) {
-    background-color: var(--yellowish);
+    background-color: rgb(255 192 105 / 85%);
 }
 
 .comment:nth-child(even) {
@@ -401,28 +389,111 @@ footer {
 
 #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
 #input:focus { outline: none; }
-button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
 
-/* Profile Styles Start */
+/* PROFILE STARTS */
+.user-info-section{
+    margin: 0 0 60px 0;
+}
 .profile-img {
-    width: 250px;
-    border-radius: 10px;
+    width: 100%;
+    border-radius: 100%;
 }
 
-.profile-container {
-    width: 100%;
+.change-img{
+    background-color: var(--yellowish);
+    color: var(--brownish);
+    padding: 1px 5px;
+    border-radius: 5px;
+    margin: 0 0 10px 0;
+}
+
+#user-username {
+    color: white;
+    text-align: center;
+    background: var(--reddish);
+    border-radius: 0px 0px 20px 20px;
+    margin: 12px 0 0 0;
+    font-size: 2.8vw;
+    padding: 3px 0 5px 0;
+    
+}
+
+@media (max-width: 751px){
+    #user-username {
+        font-size: 4.5vw;
+    }
 }
 
 .profile-info {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     color: whitesmoke;
     width: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+}
+
+#start-conversation-button{
+    background-color: rgba(255,255,255,.5);
+    width: 100%;
+    color: var(--yellowish);
+}
+
+.bio-heading{
+    font-weight: bold;
+    opacity: 55%;
 }
 
 .user-bio-edit {
     width: 100%;
     height: 50%;
+    border-radius: 0 0 18px 18px;
+    opacity: 90%;
+    padding: 5px 15px;
+}
+
+.bio-box {
+    background: rgb(255 255 255 / 28%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+.bio-button-box {
+    display: flex;
+    width: 100%;
+    padding: 4px 10px 0 10px;
+}
+
+.fa-tools {
+    color: black;
+    opacity: 60%;
+    margin: 0 0 0 15px;
+}
+
+.fa-tools:hover {
+    color: var(--yellowish);
+    opacity: 100%;
+}
+
+#user-bio {
+    margin: 0 30px 10px 30px;
+}
+
+#start-conversation-button {
+    background-color: rgb(95 158 160 / 80%);
+    width: 100%;
+    margin-top: 13px;
+    padding: 5px 0;
+    font-size: larger;
+    color: white;
+    /* border-radius: 5px; */
+}
+
+.profile-posts {
+    padding: 20px 2%;
 }
 
 .drag-drop-modal {
@@ -444,4 +515,4 @@ button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; borde
 .drag-drop-content {
   text-align: center;
 }
-/* Profile Styles End */
+/* PROFILE ENDS */

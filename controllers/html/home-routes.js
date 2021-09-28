@@ -131,7 +131,7 @@ router.get('/post/edit/:id', withAuth, (req, res) => {
     });
 });
 
-router.get('/test', (req, res) => {
+router.get('/test1/', (req, res) => {
     if (req.session.loggedIn) {
         console.log('loggin')
         User.findOne({
