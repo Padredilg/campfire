@@ -26,15 +26,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(sess));
 app.use(routes);
+const rooms = {}
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    socket.on('new-user', (channelName, username) => {
+        socket.join(channelName)
+    });
     socket.on('disconnect', () => {
         console.log('user disconnected');
     });
-    socket.on('chat message', msg => {
-       io.emit('chat message', msg);
-        console.log('message: '+ msg)
+    socket.on('send-chat-message', (username, msg) => {
+       io.emit('chat-message', {username:username, msg:msg});
     });
   });
 
