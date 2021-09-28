@@ -1,10 +1,10 @@
 const socket = io(); 
 let form = document.getElementById('form');
 let input = document.getElementById('input');
-let messages = document.getElementById('posts');
+let messages = document.getElementById('messages');
+let hiddenUsername = document.getElementById('username');
 
-
-let x = socket.emit('new-user', name)
+const username = hiddenUsername.textContent;
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -15,8 +15,10 @@ form.addEventListener('submit', function(e) {
 });
 
 socket.on('chat message', function(msg) {
-    var item = document.createElement('li');
-    item.textContent = msg;
+    var item = document.createElement('p');
+    item.textContent = `${username}: ${msg}`;
     messages.appendChild(item);
     console.log('message: '+ msg)
+    
+
 });

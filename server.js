@@ -30,10 +30,6 @@ const rooms = {}
 
 io.on('connection', (socket) => {
     socket.on('new-user', (name) => {
-
-    });
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
     });
     socket.on('disconnect', () => {
         console.log('user disconnected');
@@ -41,6 +37,8 @@ io.on('connection', (socket) => {
     socket.on('chat message', msg => {
        io.emit('chat message', msg);
         console.log('message: '+ msg)
+        console.log(session.username)
+
     });
   });
 

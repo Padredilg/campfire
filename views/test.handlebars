@@ -7,9 +7,22 @@
         {{/each}}
     </div>
     <div class="col-sm">
-      {{!-- pass username from section here --}}
-      {{>channel}}
+      <div class="card mx-3 channel-body" id="channel">
+        <div id="messages">
+            
+        </div>
+
+        <form id="form">
+            <input id="input" autocomplete="off" /><button>Send</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
+<span id="username" style="display: none;">{{username}}</span>
+<span id="channel" style="display: none;">{{username}}</span>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascript/channel.js"></script>
 
