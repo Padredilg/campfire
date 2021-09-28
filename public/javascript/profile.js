@@ -44,6 +44,8 @@ const saveHandler = (event) => {
     bioEl.textContent = bioTextArea.value;
     bioTextArea.replaceWith(bioEl);
 
+    
+
     document.removeEventListener('click', saveHandler);
   }
 };
