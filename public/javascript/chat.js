@@ -2,6 +2,7 @@ const socket = io();
 let formEl = document.getElementById('chat-form');
 let newChatMessageEl = document.getElementById('new-chat-message');
 let messagesEl = document.getElementById('messages');
+let noMessagesEl = document.getElementById('no-messages');
 let hiddenUsernameEl = document.getElementById('username');
 // let channelBtnsEls = document.querySelectorAll('.channelBtn');
 
@@ -25,6 +26,10 @@ formEl.addEventListener('submit', function(e) {
 
 
 socket.on('chat-message', function(message) {
+    if (messagesEl.style.display === "none") {
+        messagesEl.style.display = "block";
+        noMessagesEl.style.display = "none";
+    }
     let row = document.createElement("div");
     row.className = "row";
     let userName = document.createElement("div");

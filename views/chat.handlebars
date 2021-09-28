@@ -2,8 +2,12 @@
 
 {{!-- the messages that have been sent --}}
 <div class="card mx-3 my-3">
-    <div class="card-body" id="messages">
+    {{!-- This section will be hidden at first since at first there are no messages --}}
+    <div class="card-body" id="messages" style="display: none;">
 
+    </div>
+    <div class="card-body" id="no-messages">
+        <p>There are no messages to display.</p>
     </div>
 </div>
 
