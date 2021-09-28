@@ -20,7 +20,9 @@
       </div>
     </div>
     <div class="col-1">
-      <i id="edit" class="far fa-lg fa-edit"></i>
+      <button id="edit-profile-button">
+        Edit
+      </button>
     {{else}}
     <div class="col-7 profile-info">
       <div class="profile-container">
@@ -29,9 +31,9 @@
       </div>
     </div>
     <div class="col-2">
-      <button type="button" id="menu-friends" class="link-button menu-button">
-        <i class="fas fa-solid fa-user-group mr-1"></i>
-        Add Friend
+      <button type="button" id="start-conversation-button" class="link-button menu-button">
+        <i class="fas fa-comments"></i>
+        Start Conversation
       </button>
     {{/if}}
     </div>
@@ -46,6 +48,14 @@
     </div>
   </div>
 
+</div>
+
+<div id="drag-drop-modal" class="drag-drop-modal none">
+
+  <div class="col drag-drop-content">
+    <h3>Upload Profile Picture</h3>
+    <button>Upload Photo</button>
+  </div>
 </div>
 
 <script src="/javascript/profile.js"></script>

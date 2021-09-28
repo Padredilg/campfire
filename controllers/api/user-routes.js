@@ -132,6 +132,7 @@ router.put('/', (req, res) => {
     individualHooks: true,
     where: {
       id: req.session.user_id
+      // id: 4
     }
   })
     .then(dbUserData => {
