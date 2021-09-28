@@ -3,12 +3,26 @@
     <div class="col-sm">
         {{!-- {{>menu data}} --}}
         {{#each channels}}
-        <button data-channelID="{{id}}">{{name}}</button>
+        <button class="channelBtn" data-channelID="{{id}}">{{name}}</button>
         {{/each}}
     </div>
     <div class="col-sm">
-      {{>channel}}
+      <div class="card mx-3 channel-body" id="channel">
+        <div id="messages">
+            
+        </div>
+
+        <form id="meatballs">
+            <input id="input" autocomplete="off" /><button>Send</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
+<span id="username" style="display: none;">{{username}}</span>
+<span id="channel" style="display: none;">{{username}}</span>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascript/test.js"></script>
 
