@@ -1,7 +1,13 @@
-const editEl = document.querySelector('#edit');
+// DOM elements
+const editButtonEl = document.querySelector('#edit-profile-button');
 const bioEl = document.querySelector('#user-bio');
+const pictureEl = document.querySelector('#user-img');
+const dragDropModalEl = document.querySelector('#drag-drop-modal');
 
 const editHandler = () => {
+  // event listener to update profile picture
+  pictureEl.addEventListener('click', dragDropHandler);
+  
   // textarea to edit bio
   const bioTextArea = document.createElement('textarea');
   bioTextArea.id = 'user-bio-edit';
@@ -18,7 +24,10 @@ const editHandler = () => {
 const saveHandler = (event) => {
   const bioTextArea = document.querySelector('#user-bio-edit');
 
-  if (event.target !== bioTextArea) {
+  if (event.target !== 
+    bioTextArea || 
+    dragDropModalEl || 
+    pictureEl) {
 
     fetch(`/api/users/`, {
       method: 'put',
@@ -30,6 +39,7 @@ const saveHandler = (event) => {
       .then(res => res.json())
       .then(data => console.log(data));
     
+
     bioEl.textContent = bioTextArea.value;
     bioTextArea.replaceWith(bioEl);
 
@@ -37,4 +47,8 @@ const saveHandler = (event) => {
   }
 };
 
-editEl.addEventListener('click', editHandler);
+const dragDropHandler = () => {
+  dragDropModalEl.classList.remove('none');
+};
+
+editButtonEl.addEventListener('click', editHandler);
