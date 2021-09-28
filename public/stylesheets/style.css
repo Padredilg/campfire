@@ -344,7 +344,7 @@ a.sort-by-btn:hover {
 }
   
 .comment:nth-child(odd) {
-    background-color: rgb(255 192 105 / 85%);
+    background-color: rgb(255, 192, 105, .85);
 }
 
 .comment:nth-child(even) {

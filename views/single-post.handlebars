@@ -41,7 +41,7 @@
 <div class="comment-count">
     <p id="comment-count-box">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</p>
 </div>
-{{> comments post.comments}}
+{{> comments post }}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>

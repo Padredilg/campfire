@@ -65,11 +65,17 @@ router.get('/post/:id', (req, res) => {
             post.edit = false;
         }
 
+        post.comments.forEach(element => {
+            element.loggedInUserId = req.session.user_id;
+            element.postUserId = post.user_id;
+        }); 
+
         // pass data to template
         res.render('single-post', {
                 post,
                 loggedIn: req.session.loggedIn,
-                username: req.session.username
+                username: req.session.username,
+                userIdNumber: req.session.user_id
             });
     })
         .catch(err => {
