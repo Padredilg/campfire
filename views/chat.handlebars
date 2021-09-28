@@ -1,17 +1,16 @@
 {{!-- user can enter a new message --}}
 
 {{!-- the messages that have been sent --}}
-<div class="card mx-3 my-3">
-    {{!-- This section will be hidden at first since at first there are no messages --}}
-    <div class="card-body" id="messages" style="display: none;">
-
-    </div>
-    <div class="card-body" id="no-messages">
-        <p>There are no messages to display.</p>
+<div class="card mx-3 my-3 chat-messages-wrapper">
+    <div class="card-body" id="chat-messages">
+        {{!-- This section will be hidden after at least one message gets posted --}}
+        <section id="no-messages" class="chat-message">
+            <div>There are no messages to display.</div>
+        </section>
     </div>
 </div>
 
-<div class="card mx-3 my-3">
+<div class="card mx-3 my-3 chat-messages-wrapper">
     <form class="chat-form card-body" id="chat-form">
         <div class="form-group">
             <textarea class="form-control mb-0" id="new-chat-message" rows="1"></textarea>

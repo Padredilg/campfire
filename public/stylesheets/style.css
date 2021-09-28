@@ -4,6 +4,10 @@
     --reddish: #A45D5D;
     --yellowish:#FFC069;
     --greyish: #b3b1b1;
+    --opaqyellow: rgba(255, 192, 105, .60);
+    --opaqblue: rgba(179, 215, 255, .60);
+    --opaqwhite: rgba(255,255,255,.60);
+
 }
 
 * {
@@ -526,18 +530,29 @@ footer {
     border: 1px black solid;
 }
 
-.chat-user {
-    text-align: right;
-    padding-right: 4px !important;
-    margin-top: 2px;
-    background-color: var(--reddish);
-    border-radius: 2px;
-    color: white;
+#no-messages {
+    background-color: var(--opaqwhite);
 }
 
-.chat_message {
-    text-align: left;
-    margin-top: 2px;
-    padding-left: 0;
-    margin-left: 4px;
+/* after MUCH experimentation, it really does need to be like this to get the translucent white effect */
+form#chat-form.chat-form.card-body, form#chat-form.chat-form.card-body textarea {
+    background-color: var(--opaqwhite);
+}
+
+.chat-message {
+    padding: 1%;
+    margin-bottom: 1%;
+    border-radius: 10px 0 10px 0;
+}
+
+.chat-message:nth-child(odd) {
+    background-color: rgb(255 192 105 / 85%);
+}
+
+.chat-message:nth-child(even) {
+    background-color: rgba(179, 215, 255, .85);
+}
+
+.chat-messages-wrapper {
+    background-color: transparent;
 }
