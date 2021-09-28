@@ -7,41 +7,39 @@
 
 <div class="container-fluid mt-3 mx-auto">
   <div class="row pt-2">
+
     <div class="col-3">
       <img id ="user-img" class="mx-4 profile-img"
            src="{{user.img_url}}"
            alt="Profile picture here">
     </div>
-    {{#if user.edit}}
+
     <div class="col-8 profile-info">
       <div class="profile-container">
         <h2 id="user-username">{{user.username}}</h2>
         <p id="user-bio">{{user.bio}}</p>
       </div>
     </div>
+
+    {{#if user.edit}}
     <div class="col-1">
       <button id="edit-profile-button">
         Edit
       </button>
+
     {{else}}
-    <div class="col-7 profile-info">
-      <div class="profile-container">
-        <h2 id="user-username">{{user.username}}</h2>
-        <p id="user-bio">{{user.bio}}</p>
-      </div>
-    </div>
     <div class="col-2">
       <button type="button" id="start-conversation-button" class="link-button menu-button">
         <i class="fas fa-comments"></i>
         Start Conversation
       </button>
+
     {{/if}}
     </div>
   </div>
 
   <div class="row mt-5">
-    <div class="col-4"></div>
-    <div class="col-8">
+    <div class="col-9">
       {{#each posts as |post|}}
       {{> post-info post }}
       {{/each}}
@@ -51,7 +49,6 @@
 </div>
 
 <div id="drag-drop-modal" class="drag-drop-modal none">
-
   <div class="col drag-drop-content">
     <h3>Upload Profile Picture</h3>
     <button>Upload Photo</button>
