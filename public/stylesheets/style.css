@@ -427,7 +427,7 @@ button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; borde
 
 .drag-drop-modal {
     position: fixed;
-    display: none;
+    display: flex;
     align-items: center;
     left: 32.5%;
     top: 20%;
@@ -435,6 +435,10 @@ button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; borde
     height: 35%;
     z-index: 1000;
     background: white;
+}
+
+.none {
+  display: none;
 }
 
 .drag-drop-content {
