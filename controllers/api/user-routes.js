@@ -131,8 +131,8 @@ router.put('/', (req, res) => {
   User.update(req.body, {
     individualHooks: true,
     where: {
-      // id: req.session.user_id
-      id: 4
+      id: req.session.user_id
+      // id: 4
     }
   })
     .then(dbUserData => {
