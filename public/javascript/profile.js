@@ -1,5 +1,5 @@
 // DOM elements
-const editButtonEl = document.querySelector('#edit-profile-button');
+const editBioButtonEl = document.querySelector('#edit-bio-button');
 const bioEl = document.querySelector('#user-bio');
 const pictureEl = document.querySelector('#user-img');
 const dragDropModalEl = document.querySelector('#drag-drop-modal');
@@ -51,4 +51,4 @@ const dragDropHandler = () => {
   dragDropModalEl.classList.remove('none');
 };
 
-editButtonEl.addEventListener('click', editHandler);
+editBioButtonEl.addEventListener('click', editHandler);
