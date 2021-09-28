@@ -34,5 +34,14 @@ module.exports = {
             .replace('www.', '')
             .split('/')[0]
             .split('?')[0];
+    },
+    equal: function(lvalue, rvalue, rvalue2, options) {
+        if (arguments.length < 4)
+            throw new Error("Handlebars Helper equal needs 3 parameters");
+        if(lvalue!=rvalue && lvalue!=rvalue2) {
+            return options.inverse(this);
+        } else {
+            return options.fn(this);
+        }
     }
 }
