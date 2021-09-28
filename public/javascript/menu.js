@@ -42,5 +42,5 @@ async function menuFriendsHandler(event) {
     }
 }
 
-document.querySelector('#menu-friends').addEventListener('click', menuFriendsHandler);
+// document.querySelector('#menu-friends').addEventListener('click', menuFriendsHandler);
 
