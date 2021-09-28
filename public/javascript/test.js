@@ -9,16 +9,15 @@ const username = hiddenUsername.textContent;
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     if (input.value) {
-    socket.emit('chat message', input.value);
+    socket.emit('chat message', `${username}: ${input.value}`);
     input.value = '';
     }
 });
 
 socket.on('chat message', function(msg) {
     var item = document.createElement('p');
-    item.textContent = `${username}: ${msg}`;
+    item.className = "m-1"
+    item.textContent = msg;
     messages.appendChild(item);
     console.log('message: '+ msg)
-    
-
 });
