@@ -6,52 +6,90 @@
 
 
 <div class="container-fluid mt-3 mx-auto">
-  <div class="row pt-2">
-    <div class="col-3">
-      <img id ="user-img" class="mx-4 profile-img"
-           src="{{user.img_url}}"
-           alt="Profile picture here">
+  <section class="row pt-2 user-info-section">
+
+    <div class="col-md-3 col-6">
+      <div class="picture-box">
+        <button class="change-img">Change Image</button>
+        <img id ="user-img" class="profile-img"
+            src="{{user.img_url}}"
+            alt="Profile picture here">
+      </div>
+
+      <h2 id="user-username">{{user.username}}</h2>
+
+      {{!-- Start Conversation Button --}}
+      {{#if user.edit}}
+      {{!-- only generate this button if not the logged in user --}}
+      {{else}}
+      <button type="button" id="start-conversation-button">
+        <i class="fas fa-comments"></i> Chat
+      </button>
+      {{/if}}
     </div>
+
+    {{!-- typed section of profile --}}
+    <div class="col-md-8 col-11">
+      <div class="profile-info">
+        <div class="bio-box">
+
+          <div class="bio-button-box separate-items">
+            <h4 class="bio-heading">Bio:</h4>
+            {{#if user.edit}}
+            <button id="edit-bio-button">
+              <i class="fas fa-tools"></i>
+            </button>
+            {{/if}}
+          </div>
+
+          <p id="user-bio">{{user.bio}}</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  {{#if posts.length}}
+  <section>
     {{#if user.edit}}
-    <div class="col-8 profile-info">
-      <div class="profile-container">
-        <h2 id="user-username">{{user.username}}</h2>
-        <p id="user-bio">{{user.bio}}</p>
-      </div>
-    </div>
-    <div class="col-1">
-      <button id="edit-profile-button">
-        Edit
-      </button>
+    <h2 class="section-title">Your Posts:</h2>
     {{else}}
-    <div class="col-7 profile-info">
-      <div class="profile-container">
-        <h2 id="user-username">{{user.username}}</h2>
-        <p id="user-bio">{{user.bio}}</p>
-      </div>
-    </div>
-    <div class="col-2">
-      <button type="button" id="start-conversation-button" class="link-button menu-button">
-        <i class="fas fa-comments"></i>
-        Start Conversation
-      </button>
+    <h2 class="section-title">{{user.username}}'s Posts:</h2>
     {{/if}}
-    </div>
-  </div>
 
-  <div class="row mt-5">
-    <div class="col-4"></div>
-    <div class="col-8">
-      {{#each posts as |post|}}
-      {{> post-info post }}
-      {{/each}}
-    </div>
-  </div>
+    <div class="container">
+        <div class="row profile-posts">
+            {{#each posts as |post|}}
+              <article class="post-wrapper col-lg-5 col-sm-11 block">
+                  <div class="card post">
 
-</div>
+                      <div class="card-header separate-items">
+                          <div>
+                              <i class="fas fa-lg fa-user-circle"></i> {{post.user.username}} {{format_date post.created_at}}
+                          </div>
+                          {{#if edit}} 
+                          <a href="/post/edit/{{post.id}}" class="edit-link"> <i class="far fa-lg fa-edit"></i> </a>
+                          {{/if}}
+                      </div>
+
+                      <div class="card-body">
+                          <p class="card-text">{{post.content}}</p>
+                          <div class="card-text credentials">
+                              <i class="fas fa-heart"></i> {{post.love_count}}   
+                              |
+                              <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+                          </div>
+                      </div>
+
+                  </div>
+              </article>
+            {{/each}}
+        </div>
+    </div>
+  </section>
+  {{/if}}
 
 <div id="drag-drop-modal" class="drag-drop-modal none">
-
   <div class="col drag-drop-content">
     <h3>Upload Profile Picture</h3>
     <button>Upload Photo</button>

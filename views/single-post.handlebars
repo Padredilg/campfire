@@ -4,7 +4,7 @@
         <div class="card-header separate-items">
 
             <div>
-                <i class="fas fa-lg fa-user-circle"></i>  {{post.user.username}} {{format_date post.created_at}}
+                <i class="fas fa-lg fa-user-circle"></i> {{post.user.username}} {{format_date post.created_at}}
             </div>
 
             {{#if post.edit}} 
@@ -18,7 +18,6 @@
         </div>
     </div>
     <i class="fas fa-heart"></i> <p class="loves-count">{{post.love_count}}</p> <button type="button" class="love-btn btn btn-danger">Love</button>
-
 </article>
 
 <div class="container">
