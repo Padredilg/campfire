@@ -1,4 +1,23 @@
-{{!-- have two columns with bootstrap, one for menu, other for feed --}}
+<h2 class="section-title"> Add New Post? </h2>
+
+<section class="new-post-form">
+  <form class="card w-75 add-post">
+    <div class="card-header">
+        Create new Post
+    </div>
+
+    <div class="card-body">
+      <div class="form-group">
+        <textarea class="form-control add-post-txt" placeholder="Enter content" id="post-content" name="post-content" /></textarea>
+      </div>
+      <button type="submit" class="btn btn-secondary general-button">Create</button>
+    </div>
+  </form>
+</section>
+
+<h2 class="section-title"> Wall of Posts </h2>
+
+{{!-- Sort By: Oldest, Newest, Most Popular --}}
 <div class="container">
     <div class="row">
         <div class="col-md-9 col-sm-12">
@@ -18,7 +37,8 @@
     </div>
 </div>
 
-<script src="/javascript/love.js"></script>
-{{#if loggedIn}}
+<script src="/javascript/add-post.js"></script>
+
+{{!-- {{#if loggedIn}}
 <script src="/javascript/menu.js"></script>
-{{/if}}
+{{/if}} --}}
