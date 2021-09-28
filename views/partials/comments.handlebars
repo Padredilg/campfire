@@ -6,14 +6,13 @@
                 {{comment.user.username}} {{format_date comment.created_at}}
             </div>
 
-            {{!-- I want to render this button if comment id matches loggedIn user id, or if logged iuser is the same as the post_id --}}
             {{#equal comment.loggedInUserId comment.postUserId comment.user_id }} 
             <button><i data-id={{id}} class="fas fa-trash-alt"></i></button>
             {{/equal}}
-
         </div>
+
         <div class="text">
-            {{comment.comment_text}} {{ comment.loggedInUserId }} {{ comment.postUserId }}  {{comment.user_id}}
+            {{comment.comment_text}}
         </div>
     </section>
     {{/each}}
