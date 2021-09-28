@@ -388,4 +388,20 @@ button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; borde
     width: 100%;
     height: 50%;
 }
+
+.drag-drop-modal {
+    position: fixed;
+    display: none;
+    align-items: center;
+    left: 32.5%;
+    top: 20%;
+    width: 35%;
+    height: 35%;
+    z-index: 1000;
+    background: white;
+}
+
+.drag-drop-content {
+  text-align: center;
+}
 /* Profile Styles End */

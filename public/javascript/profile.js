@@ -1,7 +1,13 @@
+// DOM elements
 const editEl = document.querySelector('#edit');
 const bioEl = document.querySelector('#user-bio');
+const pictureEl = document.querySelector('#user-img');
+const dragDropModalEl = document.querySelector('#drag-drop-modal');
 
 const editHandler = () => {
+  // event listener to update profile picture
+  pictureEl.addEventListener('click', dragDropHandler);
+  
   // textarea to edit bio
   const bioTextArea = document.createElement('textarea');
   bioTextArea.id = 'user-bio-edit';
@@ -18,7 +24,7 @@ const editHandler = () => {
 const saveHandler = (event) => {
   const bioTextArea = document.querySelector('#user-bio-edit');
 
-  if (event.target !== bioTextArea) {
+  if (event.target !== bioTextArea || dragDropModalEl) {
 
     fetch(`/api/users/`, {
       method: 'put',
@@ -35,6 +41,10 @@ const saveHandler = (event) => {
 
     document.removeEventListener('click', saveHandler);
   }
+};
+
+const dragDropHandler = () => {
+
 };
 
 editEl.addEventListener('click', editHandler);
