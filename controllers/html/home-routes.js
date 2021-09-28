@@ -131,7 +131,7 @@ router.get('/post/edit/:id', withAuth, (req, res) => {
     });
 });
 
-router.get('/test1/', (req, res) => {
+router.get('/chat', (req, res) => {
     if (req.session.loggedIn) {
         console.log('loggin')
         User.findOne({
@@ -151,7 +151,7 @@ router.get('/test1/', (req, res) => {
             // res.json(data)
             const channels = data.channels.map(channel => channel.get({ plain: true}));
             // res.json(channels)
-            res.render('test', {
+            res.render('chat', {
                 channels,
                 loggedIn: req.session.loggedIn,
                 username: req.session.username
