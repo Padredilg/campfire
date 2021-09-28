@@ -1,3 +1,10 @@
+{{#if user.edit}}
+<h2 class="section-title">Welcome to your Profile page!</h2>
+{{else}}
+<h2 class="section-title">Welcome to {{user.username}}'s  Profile page!</h2>
+{{/if}}
+
+
 <div class="container-fluid mt-3 mx-auto">
   <div class="row pt-2">
     <div class="col-3">
