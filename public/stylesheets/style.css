@@ -1,3 +1,4 @@
+/* ALL STARTS */
 :root {
     --brownish: #4A403A;
     --reddish: #A45D5D;
@@ -40,6 +41,7 @@ html {
     scroll-behavior: smooth;
 }
 
+/* MAIN STARTS */
 main {
     padding: 0 0 50px 0;
     min-height: calc(100vh - 175px);
@@ -49,7 +51,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #4A403A;
+    background-color: rgba(74, 64, 58, .7);
     padding: 0 5px;
 }
 
@@ -99,15 +101,33 @@ nav {
 }
 
 .fa-free-code-camp{
-    color: var(--redish);
+    color: var(--reddish);
 }
 
 .fa-home, .fa-user-alt, .fa-sign-out-alt, .fa-sign-in-alt {
     color: white;
 }
+/* MAIN ENDS */
+
+/* HOMEPAGE STARTS*/
+@media (min-width: 576px){
+    .container {
+    max-width: 98%;
+    }
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    justify-content: space-around;
+}
+/* HOMEPAGE ENDS */
 
 /*POSTS STARTS*/
-
 .sort-by-box {
     display: flex;
     justify-content: center;
@@ -131,6 +151,11 @@ nav {
     color: white;
     padding: 3px 10px;
     border-radius: 25px;
+}
+
+a.sort-by-btn:hover {
+    color: black;
+    background: var(--greyish);
 }
 
 .post-wrapper{
@@ -166,7 +191,7 @@ nav {
 }
 
 .fa-edit:hover{
-    color: aqua;
+    color: var(--yellowish);
 }
 
 .love-btn{
@@ -187,7 +212,7 @@ nav {
     justify-content: center;
     margin: 40px 0;
     padding: 30px 50px;
-    background: rgb(255, 255, 255, .35);
+    /* background: rgb(255, 255, 255, .35); */
 
     align-items: center;
 }
@@ -199,7 +224,7 @@ nav {
 .card-header {
     padding: .75rem 1.25rem;
     margin-bottom: 0;
-    background-color: var(--brownish);
+    background-color: rgb(21, 11, 6, .65);
     border-bottom: 1px solid rgba(0,0,0,.125);
     color: white;
 }
@@ -244,7 +269,7 @@ nav {
 }
 
 .action-link {
-    color: var(--redish);
+    color: var(--reddish);
 }
 
 .action-link:hover {
@@ -259,7 +284,7 @@ nav {
 }
 
 .menu-button {
-    color: var(--redish);
+    color: var(--reddish);
 }
 
 /* MENU ENDS */
@@ -381,6 +406,7 @@ button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; borde
 /* Profile Styles Start */
 .profile-img {
     width: 250px;
+    border-radius: 10px;
 }
 
 .profile-container {
