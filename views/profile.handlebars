@@ -9,9 +9,12 @@
   <section class="row pt-2 user-info-section">
 
     <div class="col-md-3 col-6">
-      <img id ="user-img" class="profile-img"
-           src="{{user.img_url}}"
-           alt="Profile picture here">
+      <div class="picture-box">
+        <button class="change-img">Change Image</button>
+        <img id ="user-img" class="profile-img"
+            src="{{user.img_url}}"
+            alt="Profile picture here">
+      </div>
 
       <h2 id="user-username">{{user.username}}</h2>
 

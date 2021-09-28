@@ -15,6 +15,7 @@ const editHandler = () => {
   bioTextArea.textContent = bioEl.textContent;
   bioEl.replaceWith(bioTextArea);
 
+  //There needs to be a different logic to call saveHandler
   // wait 1 second and add event listener to save profile info
   setTimeout(() => {
     document.addEventListener('click', saveHandler);
