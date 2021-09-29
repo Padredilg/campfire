@@ -3,7 +3,7 @@
     <section class="comment">
         <div class="meta separate-items">
             <div>
-                {{comment.user.username}} {{format_date comment.created_at}}
+                <a href="/profile/{{comment.user_id}}">{{comment.user.username}}</a> {{format_date comment.created_at}}
             </div>
 
             {{#equal comment.loggedInUserId comment.postUserId comment.user_id }} 

@@ -35,19 +35,30 @@ const saveBio = (event) => {
 
 const uploadImage = () => {
   dragDropModalEl.classList.remove('none');
-  // logic to upload image in uppy-bundle.js
-  // based off of uppy.js
+
+  setTimeout(() => {
+    document.addEventListener('click', saveImgUrl);
+  }, 200);
 };
 
 const saveImgUrl = (img_url) => {
   dragDropModalEl.classList.add('none');
+  
+  document.removeEventListener('click', saveImgUrl);
+  console.log(typeof img_url);
 
-  updateDatabase({img_url});
-  location.reload();
-}
+  if (typeof img_url === 'string') {
+    updateDatabase({img_url})
+    .then(() => {
+      location.reload();
+    });
+  }
+};
 
 // function to hold fetch request
 const updateDatabase = async (body) => {
+  console.log(body);
+  
   const response = await fetch(`/api/users/`, {
     method: 'put',
     body: JSON.stringify(body),

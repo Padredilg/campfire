@@ -8971,13 +8971,24 @@ const Uppy = require('@uppy/core');
 const DragDrop = require('@uppy/drag-drop');
 const Tus = require('@uppy/tus');
 
-const uppy = new Uppy({debug: true, autoProceed: true});
-  uppy
-    .use(DragDrop, {target: '#drag-drop-modal'})
-    .use(Tus, {endpoint: 'https://tusd.tusdemo.net/files/'})
-    .on('upload-success', (file, response) => {
-      saveImgUrl(response.uploadURL);
-    });
+const uppy = new Uppy({
+  debug: true, 
+  autoProceed: true,
+  restrictions: {
+    allowedFileTypes: ['image/*']
+  }
+});
+
+uppy
+  .use(DragDrop, {target: '#drag-drop-modal'})
+  .use(Tus, {endpoint: 'https://tusd.tusdemo.net/files/'})
+  .on('upload-success', (file, response) => {
+    saveImgUrl(response.uploadURL);
+  })
+  .on('error', (error) => {
+    console.log(error);
+});
+
 },{"@uppy/core":12,"@uppy/drag-drop":15,"@uppy/tus":18}],69:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
