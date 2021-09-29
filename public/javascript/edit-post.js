@@ -30,6 +30,10 @@ async function editFormHandler(event) {
 function goBack(){
     window.history.back();
 }
-  
-document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
+
+const epfEl = document.querySelector('.edit-post-form')
+// if the user is not logged in, the edit post form has not been created.
+if (epfEl) {
+    epfEl.addEventListener('submit', editFormHandler);
+}
 document.querySelector('.back').addEventListener('click', goBack);
