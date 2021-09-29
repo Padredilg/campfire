@@ -304,13 +304,14 @@ a.sort-by-btn:hover {
     border-radius: 0 1px 15px 0;
     width: fit-content;
     background: rgba(255, 255, 255, .7);
+    font-size: x-large;
 }
 
 .new-post-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 40px 0;
+    margin: 20px 0;
     padding: 30px 50px;
     background: rgb(179 177 177 / 25%);
     align-items: center;
