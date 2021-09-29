@@ -398,10 +398,13 @@ a.sort-by-btn:hover {
     flex-direction: column;
     justify-content: center;
     margin: 20px 0;
-    padding: 30px 50px;
     background: rgb(179 177 177 / 25%);
     align-items: center;
     flex-wrap: nowrap;
+}
+
+.new-post-form .card-header,.new-post-form .card-body{
+    width: 100%;
 }
 
 .row-elem{
@@ -867,7 +870,7 @@ form#chat-form.chat-form.card-body#chat-send-button, form#chat-form.chat-form.ca
     align-items: center;
 } */
 
-.popup{
+#popup{
     position: fixed;
     top: 40%;
     left: 50%;
@@ -876,17 +879,10 @@ form#chat-form.chat-form.card-body#chat-send-button, form#chat-form.chat-form.ca
     border: 3px solid black;
     border-radius: 10px;
     background-color: white;
-    width: 500px;
-    max-width: 80%;
     z-index: 10;
 }
 
-/* .popup h3 {
-  font-size: 22px;
-  border-bottom: 2px solid black;
-} */
-
-.popup.active {
+#popup.active {
     transform: translate(-50%,-50%) scale(1);
 }
 
@@ -898,11 +894,17 @@ form#chat-form.chat-form.card-body#chat-send-button, form#chat-form.chat-form.ca
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, .85);
+    background-color: rgba(0, 0, 0, .75);
     pointer-events: none;
 }
 
 #overlay.active {
     opacity: 1;
     pointer-events: all;
+    z-index: 9;
+}
+
+button#openModal {
+    margin: 0 40px 12px 3px;
+    padding: 0 11px - 0;
 }

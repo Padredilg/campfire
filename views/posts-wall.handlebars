@@ -1,21 +1,23 @@
 {{!-- Make this into a button --}}
 {{#if loggedIn}}
-<h2 class="section-title"> Add New Post? </h2>
 
-<section class="new-post-form popup" id="popup">
-  <form class="card w-75 add-post">
-    <div class="card-header">
-        Create new Post
-    </div>
 
-    <div class="card-body">
-      <div class="form-group">
-        <textarea class="form-control add-post-txt" placeholder="Enter content" id="post-content" name="post-content" /></textarea>
-      </div>
-      <button type="submit" class="btn btn-secondary general-button">Create</button>
+
+<form class="card w-75 new-post-form add-post" id="popup">
+  <div class="card-header">
+      Create new Post
+  </div>
+
+  <div class="card-body">
+    <div class="form-group">
+      <textarea class="form-control add-post-txt" placeholder="Enter content" id="post-content" name="post-content" /></textarea>
     </div>
-  </form>
-</section>
+    <button type="submit" class="btn btn-secondary general-button">Create</button>
+  </div>
+</form>
+
+<!-- grey background for modal -->
+<div id="overlay"></div>
 {{/if}}
 <h2 class="section-title"> Wall of Posts </h2>
 
@@ -24,9 +26,12 @@
     <div class="row">
         <div class="col-md-9 col-sm-12">
             <div class="sort-by-box"> 
+
+              {{!-- <button class="btn" id="openModal"><i class="fas fa-plus-circle"></i>Post</button> --}}
+              <button class="btn btn-warning" id="openModal"><i class="fas fa-plus"></i></i>Post</button>
                 <h5>Sort By: </h5>
-                <ul>
-                    <a class="sort-by-btn" href="/posts-wall/oldest"><li>Oldest</li></a>
+                 <ul>
+                   <a class="sort-by-btn" href="/posts-wall/oldest"><li>Oldest</li></a>
                     <a class="sort-by-btn" href="/posts-wall/newest"><li></li>Newest</a>
                     <a class="sort-by-btn" href="/posts-wall/most-popular"><li>Most Popular</li></a>
                 </ul>

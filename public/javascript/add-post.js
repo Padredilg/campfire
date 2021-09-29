@@ -1,11 +1,11 @@
 const overlay = document.getElementById('overlay');
 const popup = document.getElementById('popup');
-const closePopup = document.getElementById('close-popup');
+const openPopup = document.getElementById('openModal');
 
 async function newFormHandler(event) {
     event.preventDefault();
     const content = document.querySelector('textarea[name="post-content"]').value;
-  
+    if (!content) {return}
     const response = await fetch(`/api/posts`, {
         method: 'POST',
         body: JSON.stringify({
@@ -32,8 +32,8 @@ if (npfEl) {
 
 //open popup window
 function openModal(message){
-    const prompt = document.getElementById('prompt');
-    prompt.textContent = message
+    // const prompt = document.getElementById('prompt');
+    // prompt.textContent = message
     popup.classList.add("active");
     overlay.classList.add("active");
 }
@@ -49,7 +49,7 @@ overlay.addEventListener('click', () => {
     closeModal();
 });
 
-closePopup.addEventListener('click', (e) => {
+openPopup.addEventListener('click', (e) => {
     e.preventDefault();
-    closeModal();
+    openModal();
 });
