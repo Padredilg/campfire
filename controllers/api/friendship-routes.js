@@ -90,8 +90,6 @@ router.get('/:id', ({params}, res) => {
       });
   });
 
-
-
 router.post('/', ({body}, res) => {
   Friendship.create({
     requesting_user_id: body.requestingID,

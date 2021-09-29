@@ -23,7 +23,7 @@ router.get('/signup', (req, res) => {
 });
 
 //Single Post (View Comments) Page
-router.get('/post/:id', (req, res) => {
+router.get('/post/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -122,7 +122,7 @@ router.get('/post/edit/:id', withAuth, (req, res) => {
          
         //If user isnt the owner, then he/she can't edit post
         if(post.user_id !== req.session.user_id){
-            res.redirect('/homepage')
+            res.redirect('/profile')
         }
 
         res.render('edit-post', { 
@@ -138,7 +138,7 @@ router.get('/post/edit/:id', withAuth, (req, res) => {
 });
 
 //Global Chat
-router.get('/chat', (req, res) => {
+router.get('/chat', withAuth, (req, res) => {
     if (req.session.loggedIn) {
         console.log('loggin')
         User.findOne({
