@@ -28,7 +28,9 @@
             <div class="sort-by-box"> 
 
               {{!-- <button class="btn" id="openModal"><i class="fas fa-plus-circle"></i>Post</button> --}}
+              {{#if loggedIn}}
               <button class="btn btn-warning" id="openModal"><i class="fas fa-plus"></i></i>Post</button>
+              {{/if}}
                 <h5>Sort By: </h5>
                  <ul>
                    <a class="sort-by-btn" href="/posts-wall/oldest"><li>Oldest</li></a>
