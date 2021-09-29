@@ -523,14 +523,19 @@ footer {
     height: 35%;
     z-index: 1000;
     background: white;
+    opacity: 1;
+}
+
+.bright {
+  opacity: 1;
+}
+
+.dim {
+  opacity: .5;
 }
 
 .none {
   display: none;
-}
-
-.drag-drop-content {
-  text-align: center;
 }
 /* PROFILE ENDS */
 
