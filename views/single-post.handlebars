@@ -4,7 +4,8 @@
         <div class="card-header separate-items">
 
             <div>
-                <i class="fas fa-lg fa-user-circle"></i> {{post.user.username}} {{format_date post.created_at}}
+                <i class="fas fa-lg fa-user-circle"></i> 
+                <a href="/profile/{{post.user_id}}">{{post.user.username}}</a> {{format_date post.created_at}}
             </div>
 
             {{#if post.edit}} 
@@ -17,7 +18,10 @@
             <p class="card-text">{{post.content}}</p>
         </div>
     </div>
-    <i class="fas fa-heart"></i> <p class="loves-count">{{post.love_count}}</p> <button type="button" class="love-btn btn btn-danger">Love</button>
+    <i class="fas fa-heart"></i> <p class="loves-count">{{post.love_count}}</p>
+    {{#if loggedIn}}
+    <button type="button" class="love-btn btn btn-danger">Love</button>
+    {{/if}}
 </article>
 
 <div class="container">

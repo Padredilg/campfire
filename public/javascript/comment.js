@@ -52,5 +52,9 @@ async function deleteComment(event){
 deleteCommentEl.forEach((button)=>{
     button.addEventListener("click", deleteComment);
 })
-  
-document.querySelector('.add-comment-form').addEventListener('submit', commentFormHandler);
+
+const acfEl = document.querySelector('.add-comment-form');
+// if the user is not logged in, the add comment form has not been created.
+if (acfEl) { 
+    acfEl.addEventListener('submit', commentFormHandler);
+}
