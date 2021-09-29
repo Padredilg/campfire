@@ -112,7 +112,7 @@ nav {
     color: var(--reddish);
 }
 
-.fa-home, .fa-user-alt, .fa-sign-out-alt, .fa-sign-in-alt {
+.about-us-icon, .fa-scroll, .fa-user-alt, .fa-sign-out-alt, .fa-sign-in-alt {
     color: white;
 }
 /* MAIN ENDS */

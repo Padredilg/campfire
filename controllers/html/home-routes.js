@@ -137,6 +137,7 @@ router.get('/post/edit/:id', withAuth, (req, res) => {
     });
 });
 
+//Global Chat
 router.get('/chat', (req, res) => {
     if (req.session.loggedIn) {
         console.log('loggin')
@@ -168,10 +169,10 @@ router.get('/chat', (req, res) => {
             res.status(500).json(err);
         });
     }
-})
+});
 
-//Initial page - Global Feed - :option? is an optional argument that for sorting purposes it can be left empty, or be oldest, newest, or most-popular
-router.get('/:option?', (req, res) => {
+//Global Feed - :option? is an optional argument that for sorting purposes it can be left empty, or be oldest, newest, or most-popular
+router.get('/posts-wall/:option?', (req, res) =>{
     let orderBy = [['created_at', 'DESC']];
     if (req.params.option === 'most-popular') {
         orderBy = [[[sequelize.literal('love_count DESC')]]]
@@ -222,7 +223,7 @@ router.get('/:option?', (req, res) => {
             return post;
         });
 
-        res.render('homepage', {
+        res.render('posts-wall', {
             posts,
             loggedIn: req.session.loggedIn,
             username: req.session.username,
@@ -232,6 +233,14 @@ router.get('/:option?', (req, res) => {
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
+    });
+});
+
+//Home - About Us
+router.get('/', (req, res) => {
+    res.render('about-us', {
+        loggedIn: req.session.loggedIn,
+        username: req.session.username
     });
 });
 
