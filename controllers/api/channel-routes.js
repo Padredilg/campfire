@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Channel } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Channel.findAll({
         attributes: [
             'id',
@@ -16,11 +17,11 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:name',  (req, res) => {
+router.get('/:name', withAuth,  (req, res) => {
     
 });
 
-router.post('/',  (req, res) => {
+router.post('/', withAuth,  (req, res) => {
     Channel.create({
         name: req.body.name,
     })

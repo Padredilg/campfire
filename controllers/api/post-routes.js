@@ -86,7 +86,7 @@ router.get('/:id', (req, res) => {
 });
 
 //POST create new post
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     console.log("POST", req);
     // expects {content: 'lorem ipsum nonna itteratus spector', user_id: 1}
     Post.create({
@@ -103,7 +103,7 @@ router.post('/', (req, res) => {
 
 // PUT - love (or dislove) a post
 //needs to be before PUT by /:id, or express will think uplove is an id param
-router.put('/uplove', (req, res) => {
+router.put('/uplove', withAuth, (req, res) => {
     // make sure the session exists first
     if (req.session) {
         // pass session id along with all destructured properties on req.body
@@ -117,7 +117,7 @@ router.put('/uplove', (req, res) => {
 });
 
 //PUT update a post (content)
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
             content: req.body.content
@@ -142,7 +142,7 @@ router.put('/:id', (req, res) => {
 });
 
 //DELETE a post
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id
