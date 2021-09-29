@@ -62,7 +62,7 @@ nav {
 .nav-section {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: flex-end;
 }
 
@@ -114,6 +114,29 @@ nav {
 
 .about-us-icon, .fa-scroll, .fa-user-alt, .fa-sign-out-alt, .fa-sign-in-alt {
     color: white;
+}
+
+#toTop {
+    display: none;
+    position: fixed;
+    bottom: 51px;
+    right: 51px;
+    z-index: 99;
+    font-size: 16px;
+    background-color: var(--opaqblue);
+    color: rgb(255 255 255 / 80%);
+    cursor: pointer;
+    padding: 14px 16px;
+    border-radius: 50px;
+}
+  
+#toTop:hover {
+    background-color: var(--yellowish);
+    color: var(--brownish);
+}
+
+.fa-arrow-up{
+    margin: 0;
 }
 /* MAIN ENDS */
 
