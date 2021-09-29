@@ -117,7 +117,56 @@ nav {
 }
 /* MAIN ENDS */
 
-/* HOMEPAGE STARTS*/
+/* ABOUT-US STARTS*/
+section.frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 96%;
+    margin: 30px auto;
+    border: solid 11px var(--reddish);
+    padding: 50px;
+    /* background-image: url('../assets/images/about-us-bg.jpeg');
+    background-size: cover; */
+}
+
+.who-are-we{
+    text-align: center;
+    line-height: 45px;
+}
+
+.about-title {
+    color: var(--yellowish);
+    font-weight: bold;
+}
+
+.about-intro {
+    color: white;
+    font-size: 1.15rem;
+}
+
+.about-prompt {
+    color: #b3d6ff;
+    font-weight: bold;
+    margin: 20px auto;
+}
+
+.about-button {
+    background: var(--reddish);
+    color: var(--yellowish);
+    padding: 5px 9px;
+    font-size: 1.4rem;
+    border-radius: 8px;
+    margin: 0 5px;
+}
+
+.about-button:hover {
+    color: var(--reddish);
+    background: var(--yellowish);
+}
+/* ABOUT-US ENDS */
+
+/* POSTS-WALL STARTS*/
 @media (min-width: 576px){
     .container {
     max-width: 98%;
@@ -142,7 +191,7 @@ nav {
     margin-left: -15px;
     justify-content: space-around;
 }
-/* HOMEPAGE ENDS */
+/* POSTS-WALL ENDS */
 
 /*POSTS STARTS*/
 .sort-by-box {
