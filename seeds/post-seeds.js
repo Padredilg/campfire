@@ -27,78 +27,13 @@ const postdata = [
     channel_id: 2
   },
   {
-    content: 'd.edu/consequat.png',
+    content: 'Amazon unwraps privacy features as it tries to roll deeper into your home',
     user_id: 4,
     channel_id: 2
   },
   {
-    content: '.org/non/ligula/pellentesque.js',
+    content: '2022 Jeep Grand Cherokee debuts with optional plug-in hybrid power',
     user_id: 1,
-    channel_id: 1
-  },
-  {
-    content: '/consequat/nulla.html',
-    user_id: 1,
-    channel_id: 1
-  },
-  {
-    content: 'ian.com/dui/vel/nisl/duis/ac/nibh.aspx',
-    user_id: 9,
-    channel_id: 1
-  },
-  {
-    content: 'ation.com/ligula/sit.jpg',
-    user_id: 5,
-    channel_id: 1
-  },
-  {
-    content: 'm.cn/lectus/vestibulum.json',
-    user_id: 3,
-    channel_id: 3
-  },
-  {
-    content: 'olutions.com/nam/ultrices/libero/non/mattis/pulvinar.json',
-    user_id: 10,
-    channel_id: 3
-  },
-  {
-    content: 'am.com/ac/neque/duis/bibendum/morbi/non.xml',
-    user_id: 8,
-    channel_id: 3
-  },
-  {
-    content: 'om/natoque/penatibus/et.html',
-    user_id: 3,
-    channel_id: 2
-  },
-  {
-    content: 'g/lorem.jpg',
-    user_id: 3,
-    channel_id: 2
-  },
-  {
-    content: 'ialle.it/mattis/egestas.jsp',
-    user_id: 7,
-    channel_id: 2
-  },
-  {
-    content: 'm/turpis/eget.jpg',
-    user_id: 6,
-    channel_id: 2
-  },
-  {
-    content: 'ale.com/quis.json',
-    user_id: 4,
-    channel_id: 1
-  },
-  {
-    content: '/diam/neque/vestibulum/eget/vulputate/ut/ultrices.png',
-    user_id: 6,
-    channel_id: 1
-  },
-  {
-    content: 'm/at/nibh/in.png',
-    user_id: 7,
     channel_id: 1
   }
 ];

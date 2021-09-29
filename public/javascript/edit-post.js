@@ -20,7 +20,7 @@ async function editFormHandler(event) {
     });
 
     if (response.ok) {
-        document.location.href = '/';
+        document.location.reload();;
     } 
     else {
         alert(response.statusText);
