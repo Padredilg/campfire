@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const {User, Friendship} = require('../../models');
 const {Op} = require('sequelize');
+const withAuth = require('../../utils/auth');
 
-router.get('/', (req, res) => {
+
+router.get('/', withAuth, (req, res) => {
   Friendship.findAll({
     include: [
       {
@@ -25,7 +27,7 @@ router.get('/', (req, res) => {
 });
 
 // get all the friends the logged in user has
-router.get('/friends', (req, res) => {
+router.get('/friends', withAuth, (req, res) => {
     console.log(`============================/api/friendships/friends session.user_id ${req.session.user_id}`);
     Friendship.findAll({
         where: {
@@ -67,7 +69,7 @@ router.get('/friends', (req, res) => {
 });
   
 // find specific friendship by id
-router.get('/:id', ({params}, res) => {
+router.get('/:id', withAuth, ({params}, res) => {
     Friendship.findOne({
       where: {id: params.id},
       include: [
@@ -90,9 +92,7 @@ router.get('/:id', ({params}, res) => {
       });
   });
 
-
-
-router.post('/', ({body}, res) => {
+router.post('/', withAuth, ({body}, res) => {
   Friendship.create({
     requesting_user_id: body.requestingID,
     requested_user_id: body.requestedID
@@ -106,7 +106,7 @@ router.post('/', ({body}, res) => {
 
 // I don't think we require a put route, what info would you need to update in a friendship?
 
-router.delete('/:id', ({params}, res) => {
+router.delete('/:id', withAuth, ({params}, res) => {
   Friendship.destroy({
     where: {id: params.id}
   })

@@ -127,7 +127,7 @@ router.post('/', (req, res) => {
 // });
 
 // PUT update a user by req.session.user_id
-router.put('/', (req, res) => {
+router.put('/', withAuth, (req, res) => {
   User.update(req.body, {
     individualHooks: true,
     where: {
@@ -179,7 +179,7 @@ router.post('/login', (req, res) => {
 });
 
 // Logout route
-router.post('/logout', (req, res) => {
+router.post('/logout', withAuth, (req, res) => {
   if (req.session.loggedIn) {
       req.session.destroy(() => {
         res.status(204).end();
@@ -191,7 +191,7 @@ router.post('/logout', (req, res) => {
 });
 
 // DELETE user by ID
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   User.destroy({
     where: {
         id: req.params.id

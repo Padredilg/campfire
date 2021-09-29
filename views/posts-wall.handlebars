@@ -1,3 +1,5 @@
+{{!-- Make this into a button --}}
+{{#if loggedIn}}
 <h2 class="section-title"> Add New Post? </h2>
 
 <section class="new-post-form">
@@ -14,7 +16,7 @@
     </div>
   </form>
 </section>
-
+{{/if}}
 <h2 class="section-title"> Wall of Posts </h2>
 
 {{!-- Sort By: Oldest, Newest, Most Popular --}}
@@ -24,9 +26,9 @@
             <div class="sort-by-box"> 
                 <h5>Sort By: </h5>
                 <ul>
-                    <a class="sort-by-btn" href="/oldest"><li>Oldest</li></a>
-                    <a class="sort-by-btn" href="/newest"><li></li>Newest</a>
-                    <a class="sort-by-btn" href="/most-popular"><li>Most Popular</li></a>
+                    <a class="sort-by-btn" href="/posts-wall/oldest"><li>Oldest</li></a>
+                    <a class="sort-by-btn" href="/posts-wall/newest"><li></li>Newest</a>
+                    <a class="sort-by-btn" href="/posts-wall/most-popular"><li>Most Popular</li></a>
                 </ul>
             </div>
 

@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const {Post, User, Comment} = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET current user profile
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
   User.findOne({
     where: {id: req.session.user_id},
     attributes: ['id', 'username', 'bio', 'img_url'],
