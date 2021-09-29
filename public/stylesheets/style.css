@@ -593,9 +593,6 @@ footer {
 /* PROFILE ENDS */
 
 /* CHAT START */
-#input {
-    border: 1px black solid;
-}
 
 #no-messages {
     background-color: var(--opaqwhite);
@@ -604,6 +601,17 @@ footer {
 /* after MUCH experimentation, it really does need to be like this to get the translucent white effect */
 form#chat-form.chat-form.card-body, form#chat-form.chat-form.card-body textarea {
     background-color: var(--opaqwhite);
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 10;
+    padding-top: 10;
+}
+
+form#chat-form.chat-form.card-body#chat-send-button, form#chat-form.chat-form.card-body#new-chat-message {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 10;
+    padding-top: 10;
 }
 
 .chat-message {
@@ -623,3 +631,17 @@ form#chat-form.chat-form.card-body, form#chat-form.chat-form.card-body textarea 
 .chat-messages-wrapper {
     background-color: transparent;
 }
+
+#chat-scroll-to-here {
+    background-color: transparent;
+    color: transparent;
+    height: 100px;
+}
+
+.chat-fixed-above-footer {
+    position: fixed;
+    bottom: 30px;
+    width: 96%;
+}
+
+/* END CHAT */

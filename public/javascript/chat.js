@@ -70,5 +70,8 @@ socket.on('chat-message', function(message) {
     messageInfo.appendChild(userInfo);
     messageInfo.appendChild(messageText);
     messagesEl.appendChild(messageInfo);
+
+    document.getElementById('chat-scroll-to-here').scrollIntoView();
+    // messageInfo.scrollIntoView();
 });
  

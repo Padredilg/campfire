@@ -10,17 +10,29 @@
     </div>
 </div>
 
-<div class="card mx-3 my-3 chat-messages-wrapper">
-    <form class="chat-form card-body" id="chat-form">
-        <div class="form-group">
-            <textarea class="form-control mb-0" id="new-chat-message" rows="1"></textarea>
-        </div>
-        <button type="submit" class="btn general-button mt-0">Send</button>
-    </form>
-</div>
-
 <span id="username" style="display: none;">{{username}}</span>
 <span id="channel" style="display: none;">{{username}}</span>
+
+{{!-- <div class="card mx-3 my-3 chat-messages-wrapper fixed-bottom"> --}}
+<div class="chat-fixed-above-footer card mx-3 my-3 chat-messages-wrapper" style="background-color: black;">
+  <div class="stars">
+    <div class="twinkling">
+      <div class="clouds">
+
+    <form class="chat-form card-body" id="chat-form">
+        <div class="form-group">
+            <textarea class="form-control my-0" id="new-chat-message" rows="1"></textarea>
+        </div>
+        <button type="submit" class="btn general-button my-0" id="chat-send-button">Send</button>
+    </form>
+</div>
+</div>
+</div>
+</div>
+
+<div id="chat-scroll-to-here">beep</div>
+
+
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
