@@ -13,6 +13,14 @@ const validatePassword = (pwd, cPwd) => {
     return true;
 }
 
+const validateUserName = (userName) => {
+    if (userName.length > 30) {
+        alert(`The user name cannot be longer than 30 characters.`);
+        return false;
+    }
+    return true;
+}
+
 async function signupFormHandler(event) {
     event.preventDefault();
 
@@ -26,6 +34,10 @@ async function signupFormHandler(event) {
             // validatePassword already displayed the error message
             return;
         }
+        if (!validateUserName(username)) {
+            // validateUserName already displayed the error message
+            return;
+        }
 
         const response = await fetch('/api/users', {
             method: 'post',
@@ -36,7 +48,6 @@ async function signupFormHandler(event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         });
-        
         // check the response status
         if (response.ok) {
             document.location.replace('/'); 
