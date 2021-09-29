@@ -22,7 +22,26 @@
         <div class="wrapper">
           <header>
             <div class="separate-items">
-              <h1 class="home"> <a id="home-button" href="/"> <i class="fab fa-free-code-camp"></i> Campfire</a> </h1>
+              <h1 class="home">
+                <div class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                </div>
+                <a id="home-button" href="/">__ Campfire</a> 
+              </h1>
               {{#if loggedIn}}
               <p class="greeting">Welcome, {{username}}!</p>
               {{/if}}
@@ -56,6 +75,10 @@
           <main>
             {{{ body }}}
           </main>
+
+          <button onclick="topFunction()" id="toTop" title="Go to top">
+            <i class="fas fa-arrow-up"></i>
+          </button>
           
           <footer>
             Thanks for visiting!
@@ -68,6 +91,8 @@
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
+  <script src="/javascript/back-to-top.js"></script>
+
 
 </body>
 
