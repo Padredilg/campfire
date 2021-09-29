@@ -11,7 +11,7 @@
     <div class="col-md-3 col-6">
       <div class="picture-box">
         {{#if user.edit}}
-        <button id="upload-img-button" class="change-img">Change Image</button>
+        <button id="upload-img-button"> <i class="fas fa-lg fa-edit bio-edit-button"></i> </button>
         {{/if}}
         <img id ="user-img" class="profile-img"
             src="{{user.img_url}}"
@@ -39,7 +39,7 @@
             <h4 class="bio-heading">Bio:</h4>
             {{#if user.edit}}
             <button id="edit-bio-button">
-              <i class="fas fa-tools"></i>
+              <i class="far fa-edit bio-edit-button"></i>
             </button>
             {{/if}}
           </div>
