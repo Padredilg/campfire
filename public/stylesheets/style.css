@@ -288,6 +288,11 @@ a.sort-by-btn:hover {
     margin: -3px -7px 0 15px;
 }
 
+.bio-edit-button {
+    color: rgba(255,255,255,.5);
+    margin: 0;
+}
+
 .fa-edit:hover{
     color: var(--yellowish);
 }
@@ -497,17 +502,13 @@ footer {
 .user-info-section{
     margin: 0 0 60px 0;
 }
+#upload-img-button {
+    float: right;
+}
+
 .profile-img {
     width: 100%;
     border-radius: 100%;
-}
-
-.change-img{
-    background-color: var(--yellowish);
-    color: var(--brownish);
-    padding: 1px 5px;
-    border-radius: 5px;
-    margin: 0 0 10px 0;
 }
 
 #user-username {
