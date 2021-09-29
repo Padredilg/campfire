@@ -70,5 +70,8 @@ const updateDatabase = async (body) => {
   console.log(data);
 };
 
-editBioButtonEl.addEventListener('click', editBio);
-uploadImageButtonEl.addEventListener('click', uploadImage);
+// if the logged in user is looking at another user's bio, these buttons won't exist.
+if (editBioButtonEl) {
+    editBioButtonEl.addEventListener('click', editBio);
+    uploadImageButtonEl.addEventListener('click', uploadImage);
+}

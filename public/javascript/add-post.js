@@ -19,5 +19,9 @@ async function newFormHandler(event) {
         alert(response.statusText);
     }
   }
-  
-document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+
+const npfEl = document.querySelector('.new-post-form');
+// if the user is not logged in, the new post form has not been created.
+if (npfEl) {
+    npfEl.addEventListener('submit', newFormHandler);
+}

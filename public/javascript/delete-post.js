@@ -16,5 +16,9 @@ async function deleteFormHandler(event) {
         alert(response.statusText);
     }
 }
-  
-document.querySelector('.delete-post-btn').addEventListener('click', deleteFormHandler);
+
+const dpbEl = document.querySelector('.delete-post-btn');
+// if the user is not logged in, the delete button has not been created.
+if (dpbEl) {
+    dpbEl.addEventListener('click', deleteFormHandler);
+}
