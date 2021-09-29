@@ -23,7 +23,7 @@ router.get('/signup', (req, res) => {
 });
 
 //Single Post (View Comments) Page
-router.get('/post/:id', withAuth, (req, res) => {
+router.get('/post/:id', (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -140,7 +140,6 @@ router.get('/post/edit/:id', withAuth, (req, res) => {
 //Global Chat
 router.get('/chat', withAuth, (req, res) => {
     if (req.session.loggedIn) {
-        console.log('loggin')
         User.findOne({
             attributes: { exclude: ['password'] },
             where: {

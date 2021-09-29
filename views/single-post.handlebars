@@ -17,7 +17,10 @@
             <p class="card-text">{{post.content}}</p>
         </div>
     </div>
-    <i class="fas fa-heart"></i> <p class="loves-count">{{post.love_count}}</p> <button type="button" class="love-btn btn btn-danger">Love</button>
+    <i class="fas fa-heart"></i> <p class="loves-count">{{post.love_count}}</p>
+    {{#if loggedIn}}
+    <button type="button" class="love-btn btn btn-danger">Love</button>
+    {{/if}}
 </article>
 
 <div class="container">
