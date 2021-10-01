@@ -65,8 +65,8 @@ Since users will have the ability post about new technologies that they have tri
 
 <a id="credits"></a>
 ## Credits
-* (SED Innovations: Cloudy and starry night background animation)[https://codepen.io/WebSonick/pen/vjmgu]
-* (Speckyboy: It's Bubbly Flame Effect)[https://speckyboy.com/flame-effects-code-snippets/]
+* [SED Innovations: Cloudy and starry night background animation](https://codepen.io/WebSonick/pen/vjmgu)
+* [Speckyboy: It's Bubbly Flame Effect](https://speckyboy.com/flame-effects-code-snippets/)
 * Fontawesome Icons:
    - [free-code-camp](https://fontawesome.com/v5.15/icons/free-code-camp?style=brands)
    - [scroll](https://fontawesome.com/v5.15/icons/scroll?style=solid)
