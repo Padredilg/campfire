@@ -1,23 +1,32 @@
 # Campfire
 
-Campfire is a communication app for Coding Bootcamp attendees.
-
-Campfire was created to serve as the go to social media of a Coding Bootcamp student. In this application, old and new students will have the opportunity to bond and network with one another in a more direct way than they do during classes or through Slack. When joining the application, students will find others who are going through similar experiences and obstacles. Hence, users are guaranteed to make significant connections with one another. 
-
-Since users will have the ability post about new technologies that they have tried or want to learn about, and also check what other users have been posting lately, this app will serve users as a source of knowledge about revolutionary technologies, as well as a source of help with technologies that are new to the students.
-
----
 ## Table of Contents
+
+* [Description](#description)
 
 * [Contributors](#contributors)
 
 * [Technologies Used](#techUsed)
 
+* [Credits](#credits)
+
+* [Usage](#usage)
+
 * [Future Enhancements](#futurePlans)
 
-* [Campfire Screenshot](#webImage)
+* [Deployed Application](#deployedApp)
 
-* [Campfire URL](#projectURL)
+* [Gallery](#gallery)
+
+---
+<a id="Description"></a>
+## Description
+
+Campfire is a communication app for Coding Bootcamp attendees.
+
+Campfire was created to serve as the go to social media of a Coding Bootcamp student. In this application, old and new students will have the opportunity to bond and network with one another in a more direct way than they do during classes or through Slack. When joining the application, students will find others who are going through similar experiences and obstacles. Hence, users are guaranteed to make significant connections with one another. 
+
+Since users will have the ability post about new technologies that they have tried or want to learn about, and also check what other users have been posting lately, this app will serve users as a source of knowledge about revolutionary technologies, as well as a source of help with technologies that are new to the students.
 
 ---
 
@@ -31,35 +40,52 @@ Since users will have the ability post about new technologies that they have tri
 
 <a id="techUsed"></a>
 ## Technologies Used
-
-### New-to-us Technologies:
+* GitHub
+* HTML
+* CSS
+* Javascript
+* Bootstrap
+* Node.js
+* Express
+* MySQL
+* Dotenv
+* Heroku
+* JAWS
+* Sequelize
+* Bcrypt
+* Express Session
+* Handlebars
 * Socket io
 * Browserify
 * Uppy
+
+<a id="credits"></a>
+## Credits
 * Cloudy and starry night background animation, SED Innovations:
-    * https://sed.am, https://mkrtchyan.ga, https://codepen.io/WebSonick/pen/vjmgu
-
-
-## Technologies learned from Bootcamp modules and challenges
-* Node.js
-* Javascript
-* Bootstrap
-* CSS
-* MVC
-* HTML
-* Handlebars
-* Express
-* Bcrypt
-* Sequelize
-* Heroku
-* Express Session
-* Dotenv
-* JAWS
-* MySQL
-* GitHub
-
+   - https://codepen.io/WebSonick/pen/vjmgu
 
 --- 
+
+<a id="Usage"></a>
+## Usage
+
+#### About Us Page: 
+   - This Page provides the user with a brief explanation of what Campfire is about.
+#### Login/Sign-Up form
+   - The user may create an account or login from an account previously created to experience 100% of the functionalities of Campfire
+   - A user who has not logged in may check the About Us page, the Posts Wall, and see the Comments and count of likes in a post. They may not, however, add loves, add comments, add posts, nor use the Live Chat.
+#### Wall of Posts
+   - This page contains a list of all of the posts that users have created. 
+   - Clicking on the name of the author of a post will redirect the page to that user's profile page.
+   - A user who is logged in may:
+      - Edit or delete their own posts, as well as create new ones from scratch.
+      - Delete any comments from their own posts.
+      - Add and delete their own comments from other people's posts
+      - Add or Remove Loves from posts
+#### Profile
+   - Each user who has created an account gets access to their own profile page. In there, the user can upload a picture, update the Bio, and also check their posts that are currently in the Wall of Posts.
+#### Live-Chat
+   - This page contains a live-chat that displays messages that every user is currently sending, so several users can hold a conversation at the same time.
 
 <a id="futurePlans"></a>
 ## Future Enhancements
@@ -75,20 +101,22 @@ Since users will have the ability post about new technologies that they have tri
 
 ---
 
-
-<a id="webImage"></a>
-## Campfire Screenshot
-
-![Campfire](./media/campfire-post-wall.png)
-
-## Profile Page
-![Campfire](./media/campfire-profile-page.png)
-
-## A Post with Comments
-![Campfire](./media/campfire-post-comments.png)
+<a id="deployedApp"></a>
+## Deployed Application
+You may access Campfire through this [link](https://campfire-social-media.herokuapp.com).
 
 ---
+<a id="gallery"></a>
+## Gallery
 
-<a id="projectURL"></a>
-## Campfire URL
-[Campfire URL](https://campfire-social-media.herokuapp.com)
+#### About Us
+![Campfire](./media/campfire-post-wall.png)
+
+#### Profile Page
+![Campfire](./media/campfire-profile-page.png)
+
+#### Example of a Post
+![Campfire](./media/campfire-post-comments.png)
+
+
+
