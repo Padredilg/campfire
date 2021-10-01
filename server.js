@@ -8,6 +8,8 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 
 const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 const PORT = process.env.PORT || 3001;
 const sess = {
     secret: 'Super secret secret',
@@ -24,6 +26,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(sess));
 app.use(routes);
+const rooms = {}
+
+io.on('connection', (socket) => {
+    socket.on('new-user', (channelName, username) => {
+        socket.join(channelName)
+    });
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
+    socket.on('send-chat-message', (username, msg) => {
+       io.emit('chat-message', {username:username, msg:msg});
+    });
+  });
 
 // Use Handlebars
 const exphbs = require('express-handlebars');
@@ -32,7 +47,8 @@ const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+  
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log(`Now listening on port ${PORT}!`));
+    http.listen(PORT, () => console.log(`Now listening on port ${PORT}!`));
 });

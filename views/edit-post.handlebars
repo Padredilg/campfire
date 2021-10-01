@@ -1,0 +1,61 @@
+<h2 class="section-title"> Edit Post </h2>
+
+<button class="btn btn-secondary back">&larr; Back </button>
+
+<section class="new-post-form">
+    <form class="edit-post-form card w-75">
+
+        <div class="card-header separate-items">
+            <div>
+                <i class="fas fa-lg fa-user-circle"></i> {{post.user.username}} {{format_date post.created_at}}
+            </div>
+        </div>
+        
+        <div class="card-body">
+
+            <div class="form-group">
+                <textarea class="form-control"  id="post-content" name="post-content" />{{post.content}}</textarea>
+            </div>
+
+
+            <div class="card-text credentials">
+                <i class="fas fa-heart"></i> {{post.love_count}} 
+                |
+                post by you on {{format_date post.created_at}}  
+            </div>
+
+            <div class="separate-items edit-buttons">
+                <button class="btn btn-info" type="submit">Save post</button>
+                <button type="button" class="delete-post-btn btn btn-danger">Delete post</button>
+            </div>
+
+        </div>
+    </form>
+</section>
+
+<div class="container">
+    <div class="row justify-center">
+        <div class="col-md-8 col-sm-10">
+            {{#if loggedIn}}
+                <form class="add-comment-form">
+                    <div>
+                        <textarea class="comment-body" name="comment-body"></textarea>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-success" type="submit">add comment</button>
+                    </div>
+                </form>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<div class="comment-count">
+    <p id="comment-count-box">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</p>
+</div>
+{{> comments post}}
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script>

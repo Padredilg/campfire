@@ -1,0 +1,31 @@
+===Technologies used
+Socket io
+Node.js
+Javascript
+Bootstrap
+CSS
+Uppy
+MVC
+HTML
+Handlebars
+Express
+Bcrypt
+MySQL
+Sequelize
+Heroku
+Express Session
+Dotenv
+JAWS
+GitHub
+===Breakdown of tasks and roles
+Luiz created the Post and Comment back and front end, laid the groundwork for Like functionality, lots of styling decisions, initial seeding of the database
+Michael created the chat backend, login/signin error modals
+Aidan created the Profile back and front end
+Brenda created chat front end, login/sign in back and front end, found the animated background and modified it for our app
+We all helped with everything!
+
+
+
+
+
+
