@@ -19,6 +19,7 @@
 * [Gallery](#gallery)
 
 ---
+
 <a id="Description"></a>
 ## Description
 
@@ -36,33 +37,48 @@ Since users will have the ability post about new technologies that they have tri
 * Michael Astalos: https://github.com/mtastalos
 * Brenda Jackels: https://github.com/bjackels5
 * Luiz Padredi: https://github.com/Padredilg
+
 --- 
 
 <a id="techUsed"></a>
 ## Technologies Used
-* GitHub
 * HTML
 * CSS
 * Javascript
-* Bootstrap
-* Node.js
-* Express
-* MySQL
-* Dotenv
-* Heroku
-* JAWS
-* Sequelize
-* Bcrypt
-* Express Session
-* Handlebars
-* Socket io
-* Browserify
-* Uppy
+* [GitHub](https://github.com/)
+* [Bootstrap](https://getbootstrap.com/)
+* [Node.js](https://nodejs.org/en/)
+* [Express](https://expressjs.com/)
+* [MySQL](https://www.mysql.com/)
+* [dotenv](https://www.npmjs.com/package/dotenv)
+* [Heroku](https://id.heroku.com/login)
+* [jawsDB](https://www.jawsdb.com/)
+* [Sequelize](https://sequelize.org/)
+* [Bcrypt](https://www.npmjs.com/package/bcrypt)
+* [express-session](https://www.npmjs.com/package/express-session)
+* [Handlebars](https://handlebarsjs.com/)
+* [Socket.IO](https://socket.io/)
+* [Browserify](https://browserify.org/)
+* [Uppy](https://uppy.io/)
+
+---
 
 <a id="credits"></a>
 ## Credits
-* Cloudy and starry night background animation, SED Innovations:
-   - https://codepen.io/WebSonick/pen/vjmgu
+* (SED Innovations: Cloudy and starry night background animation)[https://codepen.io/WebSonick/pen/vjmgu]
+* (Speckyboy: It's Bubbly Flame Effect)[https://speckyboy.com/flame-effects-code-snippets/]
+* Fontawesome Icons:
+   - [free-code-camp](https://fontawesome.com/v5.15/icons/free-code-camp?style=brands)
+   - [scroll](https://fontawesome.com/v5.15/icons/scroll?style=solid)
+   - [user-alt](https://fontawesome.com/v5.15/icons/user-alt?style=solid)
+   - [comments](https://fontawesome.com/v5.15/icons/comments?style=solid)
+   - [sign-in-alt](https://fontawesome.com/v5.15/icons/sign-in-alt?style=solid)
+   - [sign-out-alt](https://fontawesome.com/v5.15/icons/sign-out-alt?style=solid)
+   - [user-circle](https://fontawesome.com/v5.15/icons/user-circle?style=solid)
+   - [heart](https://fontawesome.com/v5.15/icons/heart?style=solid)
+   - [plus](https://fontawesome.com/v5.15/icons/plus?style=solid)
+   - [arrow-up](https://fontawesome.com/v5.15/icons/arrow-up?style=solid)
+   - [trash-alt](https://fontawesome.com/v5.15/icons/trash-alt?style=solid)
 
 --- 
 
@@ -87,6 +103,8 @@ Since users will have the ability post about new technologies that they have tri
 #### Live-Chat
    - This page contains a live-chat that displays messages that every user is currently sending, so several users can hold a conversation at the same time.
 
+---
+
 <a id="futurePlans"></a>
 ## Future Enhancements
 
@@ -106,6 +124,7 @@ Since users will have the ability post about new technologies that they have tri
 You may access Campfire through this [link](https://campfire-social-media.herokuapp.com).
 
 ---
+
 <a id="gallery"></a>
 ## Gallery
 
