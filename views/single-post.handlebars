@@ -1,0 +1,53 @@
+<article class="post-wrapper col-md-8 col-sm-10">
+    <div class="card post">
+
+        <div class="card-header separate-items">
+
+            <div>
+                <i class="fas fa-lg fa-user-circle"></i> 
+                <a href="/profile/{{post.user_id}}">{{post.user.username}}</a> {{format_date post.created_at}}
+            </div>
+
+            {{#if post.edit}} 
+            <a href="/post/edit/{{post.id}}" class="edit-link"><i class="far fa-lg fa-edit"></i></a>
+            {{/if}}
+
+        </div>
+
+        <div class="card-body">
+            <p class="card-text">{{post.content}}</p>
+        </div>
+    </div>
+    <i class="fas fa-heart"></i> <p class="loves-count">{{post.love_count}}</p>
+    {{#if loggedIn}}
+    <button type="button" class="love-btn btn btn-danger">Love</button>
+    {{/if}}
+</article>
+
+<div class="container">
+    <div class="row justify-center">
+        <div class="col-md-8 col-sm-10">
+            {{#if loggedIn}}
+                <form class="add-comment-form">
+                    <div>
+                        <textarea class="comment-body" name="comment-body"></textarea>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-success" type="submit">add comment</button>
+                    </div>
+                </form>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<div class="comment-count">
+    <p id="comment-count-box">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</p>
+</div>
+{{> comments post }}
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+<script src="/javascript/love.js"></script>
+{{/if}}

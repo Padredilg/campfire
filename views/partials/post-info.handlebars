@@ -1,0 +1,28 @@
+<article class="post-wrapper col-sm-11 block">
+    <div class="card post">
+
+        <div class="card-header separate-items">
+            <div>
+                <a href="/profile/{{user_id}}">
+                  <i class="fas fa-lg fa-user-circle"></i>  {{user.username}} 
+                </a>
+                {{format_date created_at}}
+            </div>
+            {{#if edit}} 
+            <a href="/post/edit/{{id}}" class="edit-link"> <i class="far fa-lg fa-edit"></i> </a>
+            {{/if}}
+        </div>
+
+        <div class="card-body">
+            <p class="card-text">{{content}}</p>
+            
+            <div class="card-text credentials">
+                
+                <i class="fas fa-heart"></i> {{love_count}}   
+                |
+                <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+            </div>
+        </div>
+        
+    </div>
+</article>

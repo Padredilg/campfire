@@ -2,7 +2,45 @@ const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Post extends Model {
-
+  static uplove(body, models) {
+    return models.Love.findOne({
+        where: {
+            user_id: body.user_id,
+            post_id: body.post_id
+        }
+    }).then(foundLove => {
+        if (foundLove) {
+            // If the Love was found, destroy it - "unLove"
+            return models.Love.destroy({
+                where: {
+                    user_id: body.user_id,
+                    post_id: body.post_id
+                }
+            });
+        } else {
+            // If the Love was not found, create a new Love
+            return models.Love.create({
+                user_id: body.user_id,
+                post_id: body.post_id
+            });
+        }
+    }).then(() => {
+        return Post.findOne({
+            where: {
+                id: body.post_id
+            },
+            attributes: [
+                "id",
+                "content",
+                "created_at",
+                [
+                    sequelize.literal('(SELECT COUNT(*) FROM love WHERE post.id = love.post_id)'),
+                    "love_count"
+                ]
+            ]
+        });
+    });
+  }
 }
 
 Post.init(
@@ -17,18 +55,21 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    picture: {
-      type: DataTypes.BLOB,
-      allowNull: true,
-    },
-    likes: {
-      type: DataTypes.STRING,
-      defaultValue: 0
-    },
+    // picture: {
+    //   type: DataTypes.BLOB,
+    //   allowNull: true,
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'User',
+        model: 'user',
+        key: 'id'
+      }
+    },
+    channel_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'channel',
         key: 'id'
       }
     }
@@ -38,7 +79,7 @@ Post.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user'
+    modelName: 'post'
   }
 );
 

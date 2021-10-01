@@ -1,0 +1,50 @@
+<div id="forms-section">
+    {{!-- <div class="card-header mb-0 title-bar">
+        {{logOrSign}}
+    </div> --}}
+    {{#if loggingIn}}
+    <form class="login-form w-75 individual-form card" id="login-form">
+        <div class="card-header">
+            Already have an account?
+        </div>
+        <div class="card-body">
+    {{else}}
+    <form class="signup-form w-75 individual-form card" id="signup-form">
+        <div class="card-header">
+            Create an Account
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="username" class="form-label">User name</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter user name">
+            </div>
+    {{/if}}
+
+            <div class="form-group">
+                <label for="email" class="form-label mt-3">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email address">
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label mt-3">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            {{#if loggingIn}}
+            {{!-- do nothing --}}
+            {{else}}
+            <div class="form-group">
+                <label for="confirm_password" class="form-label mt-3">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmpassword" placeholder="Password">
+            </div>
+            {{/if}}
+            <div class="login-buttons">
+                <button type="submit" class="btn general-button">{{logOrSign}}</button>
+                {{#if loggingIn}}
+                <a class="action-link px-0" href="/signup">Not yet registered? Sign up here!</a>
+                {{else}}
+                <a class="action-link px-0" href="/login">Login with an existing account instead</a>
+                {{/if}}
+            </div>
+        </div>
+    </form>
+</div>
+

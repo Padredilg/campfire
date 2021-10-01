@@ -7,43 +7,95 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Train+One">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  {{!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" /> --}}
+  <link rel="stylesheet" href="/stylesheets/uppy.min.css">
+  <link rel="stylesheet" href="/stylesheets/drag-drop.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/animation.css">
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>
-      <h1 class="home"> <a id="home-button" href="/"> <i class="fab fa-free-code-camp"></i> Campfire</a> </h1>
-      <nav>
-        <div class="nav-section">
-          <a class="link-button" href="/"> <i class="fas fa-home"></i> Home</a>
-          {{#if loggedIn}}
-          <a class="link-button" href="/dashboard"> <i class="fas fa-user-alt"></i> Dashboard</a>
-          {{/if}}
-        </div>
-        <div class="nav-section">
-          {{#if loggedIn}}
-          <a id="logout"  href="/" class="link-button">logout <i class="fas fa-sign-out-alt"></i> </a>
-          {{else}}
-          <a class="link-button" href="/login"> <i class="fas fa-sign-in-alt"></i> login</a>
-          {{/if}}
-        </div>
-      </nav>
-    </header>
+  <div class="stars">
+    <div class="twinkling">
+      <div class="clouds">
+        <div class="wrapper">
+          <header>
+            <div class="separate-items">
+              
+              <h1 class="home">
+                <div class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                </div>
+                <a id="home-button" href="/">__ Campfire</a> 
+              </h1>
 
-    <main>
-      {{{ body }}}
-    </main>
-    
-    <footer>
-      Thanks for visiting!
-    </footer>
+              {{#if loggedIn}}
+              <p class="greeting">Welcome, {{username}}!</p>
+              {{/if}}
+
+            </div>
+            
+            <nav>
+              <div class="nav-section">
+                <a class="link-button" href="/"> <i class="fab fa-free-code-camp about-us-icon"></i> About Us</a>
+                <a class="link-button" href="/posts-wall"> <i class="fas fa-scroll"></i> Posts</a>
+                {{#if loggedIn}}
+                <a class="link-button" href="/profile"> <i class="fas fa-user-alt"></i> My Profile</a>
+                {{!-- <div id="friend-list">
+                  <button class="link-button" type="button" id="menu-friends"><i class="fas fa-user-group"></i>Friends</button>
+                </div> --}}
+                <a class="link-button" href="/chat" ><i class="fas fa-comments"></i> Chat</a>
+                {{/if}}
+              </div>
+
+              <div class="nav-section">
+                {{#if loggedIn}}
+                <button type="button" id="logout" class="link-button"><i class="fas fa-sign-out-alt"></i>logout</button>
+                {{else}}
+                <a class="link-button" href="/login"> <i class="fas fa-sign-in-alt"></i> login</a>
+                {{/if}}
+              </div>
+            </nav>
+            
+          </header>
+
+
+          <main>
+            {{{ body }}}
+          </main>
+
+          <button onclick="topFunction()" id="toTop" title="Go to top">
+            <i class="fas fa-arrow-up"></i>
+          </button>
+          
+          <footer>
+            Thanks for visiting!
+          </footer>
+        </div>
+      </div>
+    </div>
   </div>
 
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
+  <script src="/javascript/back-to-top.js"></script>
+
 
 </body>
 

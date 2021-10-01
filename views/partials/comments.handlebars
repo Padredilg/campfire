@@ -1,0 +1,19 @@
+<div class="comments">
+    {{#each comments as |comment|}}
+    <section class="comment">
+        <div class="meta separate-items">
+            <div>
+                <a href="/profile/{{comment.user_id}}">{{comment.user.username}}</a> {{format_date comment.created_at}}
+            </div>
+
+            {{#equal comment.loggedInUserId comment.postUserId comment.user_id }} 
+            <button><i data-id={{id}} class="fas fa-trash-alt"></i></button>
+            {{/equal}}
+        </div>
+
+        <div class="text">
+            {{comment.comment_text}}
+        </div>
+    </section>
+    {{/each}}
+</div>

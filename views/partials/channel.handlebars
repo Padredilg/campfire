@@ -1,0 +1,21 @@
+{{!--       
+#messages { list-style-type: none; margin: 0; padding: 0; }
+#messages > li { padding: 0.5rem 1rem; }
+#messages > li:nth-child(odd) { background: #efefef; }
+body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+ --}}
+<style>
+    
+</style>
+<div class="card mx-3 channel-body" id="channel">
+    <div id="messages">
+        
+    </div>
+
+    <form id="form">
+        <input id="input" autocomplete="off" /><button>Send</button>
+    </form>
+    
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascript/channel.js"></script>
