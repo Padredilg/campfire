@@ -128,7 +128,7 @@ You may access Campfire through this [link](https://campfire-social-media.heroku
 <a id="gallery"></a>
 ## Gallery
 
-#### About Us
+#### Wall of Posts
 ![Campfire](./media/campfire-post-wall.png)
 
 #### Profile Page
